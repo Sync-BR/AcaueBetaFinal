@@ -1,0 +1,38 @@
+.container_form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1vh;
+    
+}
+
+.container_contact {
+margin-bottom: 8vh;
+    .contact {
+        display: flex;
+        gap: 1%;
+        margin-bottom: 0.5vh;
+        letter-spacing: 1px;
+        align-items: center;
+    }
+
+    p {
+        width: 4%;
+        color: gold;
+    }
+
+    .required {
+        width: 100%;
+    }
+
+    span {
+        width: 95%;
+        height: 2px;
+        background-color: gold;
+    }
+
+    h3 {
+        margin-bottom: 5vh;
+    }
+
+}

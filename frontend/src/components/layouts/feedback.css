@@ -1,0 +1,58 @@
+.container_feedback {
+    min-height: 20vh;
+    margin-bottom: 5vh;
+}
+
+.container_feedback .title_feedback {
+    display: flex;
+    color: gold;
+    gap: 1%;
+    align-items: center;
+    margin-bottom: 0.3vh;
+}
+
+.container_feedback .title_feedback p {
+    width: 4%;
+}
+
+.container_feedback .title_feedback span {
+    width: 95%;
+    height: 2px;
+    background-color: gold;
+}
+
+
+h2 {
+    margin-bottom: 8vh;
+}
+
+
+.card_feedback {
+    width: 100%;
+    border: 1px solid gold;
+    padding: 0 5vw;
+    border-radius: 1rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 20vh;
+    background: rgb(188, 191, 14);
+    background: linear-gradient(90deg, rgba(188, 191, 14, 0.7068702290076336) 22%, rgba(0, 0, 0, 0.16335877862595416) 55%, rgba(175, 191, 19, 0.5114503816793894) 100%);
+    color: #fff;
+
+
+}
+
+.card_feedback p {
+    margin-bottom: 2vh;
+    font-size: 1.2rem;
+}
+
+.card_feedback h3 {
+    text-align: start;
+}
+
+.space {
+    height: 3vh;
+}

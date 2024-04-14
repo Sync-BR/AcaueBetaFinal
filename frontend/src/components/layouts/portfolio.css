@@ -1,0 +1,88 @@
+.container_slide {
+    margin: 0 0 10vh 0;
+}
+
+.container_slide .title_port {
+    display: flex;
+    gap: 1%;
+    align-items: center;
+    color: gold;
+    margin-bottom: 0.5vh;
+}
+
+.container_slide .title_port p {
+    width: 4%;
+}
+
+.container_slide .title_port span {
+    display: block;
+    height: 2px;
+    width: 95%;
+    background-color: gold;
+}
+
+.container_slide h2 {
+    margin-bottom: 5vh;
+}
+
+.container_slide .btn_projetos {
+    width: 100%;
+    display: block;
+    text-align: center;
+    border-radius: 1rem;
+    text-decoration: none;
+    margin-top: 3vh;
+    border: 1px solid gold;
+    padding: 0.5rem 0;
+    font-weight: 600;
+    background: linear-gradient(90deg, rgba(188, 191, 14, 0.7068702290076336) 22%, rgba(0, 0, 0, 0.16335877862595416) 55%, rgba(175, 191, 19, 0.5114503816793894) 100%);
+    color: #fff;
+    transition: 0.4s ease-in-out;
+}
+
+.container_slide .btn_projetos:hover {
+    background-color: gold;
+    cursor: pointer;
+}
+
+
+
+.swiper-pagination-bullet {
+    background-color: gold;
+    height: 3px;
+    border-radius: 0;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: gold;
+
+    background-color: black;
+    border-radius: 50%;
+    padding: 1rem 1rem;
+    width: max-content;
+    height: max-content;
+
+}
+
+.swiper-button-prev {
+    left: -5px;
+}
+
+.swiper-button-next {
+    right: -5px;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-size: 15px;
+
+}
+
+
+.slide-item {
+    width: 99%;
+    height: 200px;
+    border: solid 2px gold;
+    border-radius: 1rem;
+}

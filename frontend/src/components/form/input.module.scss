@@ -1,0 +1,13 @@
+.container_input{
+    display: flex;
+    flex-direction: column;
+
+    label{
+        margin-bottom: 1vh;
+    }
+
+    input, textarea {
+        border: 2px solid gold;
+        border-radius: 0.5rem;
+    }
+}

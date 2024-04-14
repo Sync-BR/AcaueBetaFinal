@@ -1,0 +1,54 @@
+.container_main {
+    min-height: 35vh;
+    margin-bottom: 10vh;
+    padding: 0 2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .container_title h1 {
+        font-size: 5rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-bottom: 1.5vh;
+
+    }
+
+    .container_title p {
+        font-size: 1.2rem;
+        letter-spacing: 0.5px;
+        margin-bottom: 3vh;
+    }
+
+    .container_title {
+
+        .btn_contato {
+            width: 80%;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 1rem;
+            background: linear-gradient(90deg, rgba(188, 191, 14, 0.7068702290076336) 22%, rgba(0, 0, 0, 0.16335877862595416) 55%, rgba(175, 191, 19, 0.5114503816793894) 100%);
+            color: #fff;
+            padding: 0.5vh 0;
+            border: 1px solid gold;
+            font-weight: 600;
+            transition: 0.4s ease-in-out;
+        }
+
+        .btn_contato:hover {
+            cursor: pointer;
+            background-color: gold;
+
+
+        }
+    }
+}
+
+@media (max-width:768px) {
+
+    .container_main {
+        margin-bottom: 9vh;
+
+    }
+}

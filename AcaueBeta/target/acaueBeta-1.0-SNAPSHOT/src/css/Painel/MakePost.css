@@ -1,0 +1,25 @@
+.container{
+    width: 100%;
+    height: 81%;
+}
+main{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+form strong{
+    color: black;
+}
+form input{
+    width: 100%;
+}
+form button{
+    width: 100%;
+    height: 15%; 
+    font-weight: bold; 
+    font-size: 18px;
+}

@@ -1,0 +1,178 @@
+.container_nav {
+    display: flex;
+
+    input {
+
+        margin-right: 40px;
+        display: none;
+
+        &:checked~label .hamburguer {
+            transform: rotate(135deg);
+        }
+
+        &:checked~label .hamburguer:before {
+            transform: rotate(180deg);
+            top: 0;
+        }
+
+        &:checked~label .hamburguer:after {
+            transform: rotate(270deg);
+            bottom: 0;
+        }
+    }
+
+
+    label {
+        display: flex;
+        flex-direction: column;
+
+        .menu {
+            cursor: pointer;
+            display: none;
+            width: 40px;
+            height: 40px;
+            align-self: flex-end;
+
+            .hamburguer {
+
+                background-color: #e5ed06;
+                position: relative;
+                display: block;
+                width: 30px;
+                height: 2px;
+                top: 29px;
+                left: 15px;
+                transition: 0.5s ease-in-out;
+
+                &::before,
+                &::after {
+                    background-color: #daf10d;
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    transition: 0.7s ease-in-out;
+                }
+
+                &::before {
+                    top: -10px;
+                }
+
+                &::after {
+                    bottom: -10px;
+
+                }
+            }
+        }
+    }
+
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        transition: 0.4s ease-in-out;
+    }
+
+    a:visited {
+        color: gold;
+    }
+
+    a:hover {
+        color: yellowgreen;
+
+    }
+
+
+
+    ul {
+        display: flex;
+        gap: 1vw;
+        align-items: center;
+    }
+
+    .navigation li:nth-child(1) {
+        list-style: disc;
+        color: yellowgreen;
+        height: max-content;
+    }
+
+    .navigation li:nth-child(1):hover {
+        list-style: circle;
+
+    }
+
+
+    .navigation li:last-child {
+        padding-right: 2vw;
+        border-right: 2px solid #fff;
+        margin-right: 2vw;
+        height: max-content;
+    }
+
+
+
+    @media (max-width: 900px) {
+
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        z-index: 1;
+
+
+        label {
+            position: relative;
+
+            .menu {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                display: flex !important;
+
+            }
+
+        }
+
+
+        ul {
+            display: none;
+            width: 150px;
+            background-color: #fff;
+            padding: 20px 0px;
+
+        }
+
+        input:checked~.navigation {
+            display: block;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.5);
+            top: 10vh;
+            right: -10px;
+
+            li {
+                a {
+                    display: block;
+                    text-align: center;
+                    padding: 10px;
+
+                }
+            }
+        }
+    }
+
+    .navigation li:last-child {
+        border-right: none;
+        margin-right: 0;
+        padding-right: 0;
+    }
+
+    .navigation li:nth-child(1) {
+        color: rgba(0, 0, 0, 0.5);
+
+    }
+
+    .navigation li:nth-child(1):hover {
+        list-style: none;
+
+    }
+}
