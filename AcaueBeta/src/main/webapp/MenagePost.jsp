@@ -74,10 +74,11 @@
 
                 <br>
                 <section class="Content"> 
-                    <%                        if (PostDao.UpdateAtualizado) {
+                    <%                        
+if (PostDao.UpdateAtualizado) {
                             PostDao Retornar = new PostDao();
                             out.println("<form action=\"./UpdatePost\" method=\"post\">");
-                            out.println("\t<label>Arquivo</label><input type=\"file\" name=\"UpdateIMG\" style=\"width: 100%\" value=\"" + PostDao.Img.get(0).toString() + "\"><br>");
+                            out.println("\t<label>Arquivo</label><input type=\"file\" name=\"UpdateIMG\" style=\"width: 100%\""  + PostDao.Img.get(0).toString() + "\"><br>");
                             out.println("\t<label>T�tulo: </label><input type=\"text\" name=\"UpdateTitulo\"  style=\"width: 100%\" value=\"" + PostDao.Title.get(0) + "\"><br>");
                             out.println("\t<label>Descri��o</label><input value=\"" + PostDao.Description.get(0).toString() + "\" type=\"text\" name=\"UpdateDescricao\" style=\"height: 100px; width: 100%\"><br>");
                             out.println("\t<input type=\"submit\" value=\"Alterar\" style=\"width: 100%\" name=\"Alterar\" />");
@@ -90,7 +91,7 @@
                         System.out.println("Boolean " + PostDao.UpdateSucess);
 
                         if (PostDao.UpdateSucess) {
-                            if(PostDao.Img.size()> 0){
+                            if (PostDao.Img.size() > 0) {
                                 for (int index = 0; index < PostDao.Img.size(); index++) {
                                     out.print("<div class=\"Content-Post\">");
                                     out.print("<img src=\"../frontend/src/images/PostImg/" + PostDao.Img.get(index) + "\" alt=\"Post\">");
@@ -103,20 +104,23 @@
                                     PostDao.Title.remove(index);
                                     PostDao.Description.remove(index);
                                 }
-                                } else{
-                                    out.print("<div class=\"Content-Post\">");
-                                    out.print("<img src=\"../frontend/src/images/PostImg/  \" alt=\"Post\">");
-                                    out.print("<strong></strong>");
-                                    out.print("<p></p>");
-                                    out.print("</div>");
-                                    
-                                }
+                            } else {
+                                out.print("<div class=\"Content-Post\">");
+                                out.print("<img src=\"../frontend/src/images/PostImg/  \" alt=\"Post\">");
+                                out.print("<strong></strong>");
+                                out.print("<p></p>");
+                                out.print("</div>");
 
                             }
 
+                        }
+
 
                     %>
-                    <%                        if (PostDao.DeletePostSucess) {
+                    
+                    
+                    <%
+                        if (PostDao.DeletePostSucess) {
                             out.print(PostDao.Status);
                         }
                     %>

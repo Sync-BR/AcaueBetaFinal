@@ -1,6 +1,7 @@
 package WebService;
 
 import Beans.EmailBeans;
+import Beans.Registerpopup;
 import Dao.EmailDao;
 import Dao.PostDao;
 import com.google.gson.Gson;
@@ -42,9 +43,9 @@ public class GenericResource {
      */
     @Path("/Cadastrar")
     @POST
-    public Response Cadastrar(@FormParam("Nome") String Nome,
-            @FormParam("Email") String Email,
-            @FormParam("Mensagem") String Mensagem) throws Exception {
+    public Response Cadastrar(@FormParam("name") String Nome,
+            @FormParam("email") String Email,
+            @FormParam("message") String Mensagem) throws Exception {
         EmailBeans AddEmail = new EmailBeans();
         EmailDao Cadastrar = new EmailDao();
         AddEmail.setName(Nome);
@@ -60,10 +61,38 @@ public class GenericResource {
 
     /**
      * @author SYNC
+     * @Cadastrar Tem como funcionalidade efetuar o cadastro pela url e
+     * redirecionar para pagina de fehcamento
+     */
+    @Path("/RegisterPopup")
+    @POST
+    public Response Registerpopup(@FormParam("name") String name,
+            @FormParam("surname") String surname,
+            @FormParam("email") String email) throws Exception {
+        System.out.println("Nome " +name);
+        System.out.println("Sobre " +surname);
+        System.out.println("Email " +email);
+        Registerpopup AddMail = new Registerpopup();
+        EmailDao Cadastrar = new EmailDao();
+        AddMail.setName(name);
+        AddMail.setSurname(surname);
+        AddMail.setEmail(email);
+        try {
+            Cadastrar.Registerpopup(AddMail);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * @author SYNC
      * @Cadastrar Tem como funcionalidade retornar postagem cadastrado
      */
     @Path("/returnpost")
     @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public String ReturnPost() {
         PostDao Returnpost = new PostDao();
         try {
@@ -71,25 +100,19 @@ public class GenericResource {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    List<String> titles = new ArrayList<>();
-    List<String> imagem = new ArrayList<>();
-    List<String> descricao = new ArrayList<>();
-    
-    // Adiciona os títulos dos posts à lista
-    for (String title : PostDao.TitlePost) {
-        titles.add(title);
-    }
-    for (String img : PostDao.ImagePost) {
-        titles.add(img);
-    }
-    for (String description : PostDao.DescricaoPost) {
-        titles.add(description);
-    }
-    
-    // Converte a lista de títulos para JSON
-    String jsonTitles = new Gson().toJson(titles);
-    
-    return jsonTitles;
+        //Array para adicionar as informações
+        List<List<String>> postArrays = new ArrayList<>();
+
+        for (int i = 0; i < PostDao.TitlePost.size(); i++) {
+            List<String> post = new ArrayList<>();
+            post.add(PostDao.TitlePost.get(i));
+            post.add(PostDao.DescricaoPost.get(i));
+            post.add(PostDao.ImagePost.get(i));
+            postArrays.add(post);
+        }
+        String jsonPosts = new Gson().toJson(postArrays);
+
+        return jsonPosts;
     }
 
     /**

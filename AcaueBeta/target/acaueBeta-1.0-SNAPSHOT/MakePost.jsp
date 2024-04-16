@@ -53,7 +53,7 @@
                 <form action="ServletPost" method="post" enctype="multipart/form-data">
                     <label>
                         <strong>Imagem:</strong>
-                        <input type="file" name="Upload"  accept="image/png, image/jpeg">
+                        <input type="file" name="Upload"  accept="image/png, image/jpeg" multiple>
                     </label>
                     <br><br>
                     <label>

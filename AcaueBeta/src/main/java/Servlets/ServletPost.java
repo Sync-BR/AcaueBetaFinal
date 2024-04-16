@@ -52,6 +52,7 @@ public class ServletPost extends HttpServlet {
         } catch(Exception e){
             e.printStackTrace();
         }
+        
         String uploadDir = Settings.Upload;
         Part filePart = request.getPart("Upload");
         String fileName = filePart.getSubmittedFileName();
@@ -60,6 +61,7 @@ public class ServletPost extends HttpServlet {
         AddPost.setImageName(ArquivoName);
         Path path = Paths.get(filePath);
         File file = path.toFile();
+  
         try (InputStream fileContent = filePart.getInputStream()) {
             Files.copy(fileContent, path, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {

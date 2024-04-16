@@ -2,6 +2,7 @@ package Dao;
 
 import Beans.EmailBeans;
 import Beans.PostBeans;
+import Beans.Registerpopup;
 import static Dao.PostDao.DeletePostSucess;
 import Util.Conexao;
 import java.sql.Connection;
@@ -114,6 +115,29 @@ public class EmailDao {
             stm.setString(1, AddMail.getName());
             stm.setString(2, AddMail.getEmail());
             stm.setString(3, AddMail.getMensagem());
+            stm.executeUpdate();
+         
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally{
+            Conexao.closeConnection(conexao, stm);
+        }
+
+    }
+     /**
+     * @author SYNC
+     * @RegisterEmail Esta funcionalidade efetuar o cadastro de um novo email
+     */
+    public void Registerpopup(Registerpopup AddMail) throws Exception {
+        Connection conexao = null;
+        PreparedStatement stm = null;
+        try {
+            conexao = Conexao.getConnection();
+            String sql = "INSERT INTO acauebeta.cadastroemail  (name , surname, email)  VALUES (?,?,?)";
+            stm = conexao.prepareStatement(sql);
+            stm.setString(1, AddMail.getName());
+            stm.setString(2, AddMail.getSurname());
+            stm.setString(3, AddMail.getEmail());
             stm.executeUpdate();
          
         } catch (Exception e) {
