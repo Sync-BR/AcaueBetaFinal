@@ -3,14 +3,16 @@
     border-radius: 1rem;
     margin-top: 0.3vh;
     border: 1px solid gold;
-    background: rgb(188,191,14);
-        background: linear-gradient(90deg, rgba(188,191,14,0.7068702290076336) 22%, rgba(0,0,0,0.16335877862595416) 55%, rgba(175,191,19,0.5114503816793894) 100%);
+    background: linear-gradient(90deg, rgba(188, 191, 14, 0.7068702290076336) 22%, rgba(0, 0, 0, 0.16335877862595416) 55%, rgba(175, 191, 19, 0.5114503816793894) 100%);
     color: #fff;
     transition: 0.4s ease-in-out;
 }
 
 .btn_form:hover {
-        background-color: gold;
-        cursor: pointer;
+    background-color: gold;
+    cursor: pointer;
 }
 
+.margin_top {
+    margin-top: 5px;
+}

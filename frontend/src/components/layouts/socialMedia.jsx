@@ -7,12 +7,12 @@ import insta from '../../images/square-insta.svg'
 
 
 
-const SocialMedia = () => {
+const SocialMedia = ({customClass}) => {
 
     return (
         <ul className={styles.container_network}>
             <span></span>
-            <li className={`${styles.item} ${styles.insta_item}`}>
+            <li className={`${styles.item} ${styles.insta_item} ${styles[customClass]}`}>
             <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=mV0ST0aGfAo&ab_channel=Bert-Topic" title="Contact">
                     <img className={styles.img_insta} src={insta} alt="loho_insta" /></a>
             </li>

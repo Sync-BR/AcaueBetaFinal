@@ -24,14 +24,14 @@ const FormContact = () => {
             const url = `http://186.247.89.84:8080/AcaueBeta/webresources/generic/Cadastrar`;
 
             const params = new URLSearchParams();
-            params.append('Nome', data.name);
-            params.append('Email', data.email);
-            params.append('Mensagem', data.message);
+            params.append('name', data.name);
+            params.append('email', data.email);
+            params.append('message', data.message);
 
             await axios
             .post(url, params)
             .then((data) => data.config)
-            .then((data) => console.log("sucesso ", data.data))
+            .then((data) => console.log("sucesso! ", data.data))
             .catch((data) => console.error("deu ruim", data))
     
         } catch (error) {

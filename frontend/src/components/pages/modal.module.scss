@@ -1,0 +1,44 @@
+.container_modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0, 0.7);
+    z-index: 100;
+
+    p {
+        color: rgb(150, 8, 8);
+    }
+
+    .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50vw;
+        background-color: rgb(7, 8, 95);
+        padding: 30px;
+        border-radius: 10px;
+
+
+        h1 {
+            text-align: center;
+        }
+        
+        .btn_close {
+            position: absolute;
+            color: #fff;
+            top: 10px;
+            right: 10px;
+            border-radius: 1rem;
+            padding: 3px;
+            background: linear-gradient(90deg, rgba(188, 191, 14, 0.7068702290076336) 22%, rgba(0, 0, 0, 0.16335877862595416) 55%, rgba(175, 191, 19, 0.5114503816793894) 100%);
+        }
+
+        .btn_close:hover {
+            cursor: pointer;
+            background-color: gold;
+        }
+    }
+}

@@ -1,34 +1,33 @@
 import styles from './navbar.module.scss';
 import SocialMedia from './socialMedia';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { useState, useRef, useEffect } from 'react';
 
 
 const NavBar = () => {
+    const location = useLocation()
 
     const [menuOpen, setMenuOpen] = useState(false);
     const menuRef = useRef(null);
-
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (menuRef.current && !menuRef.current.contains(event.target)) {
-                setMenuOpen(false);
-            }
-        };
-
-        document.addEventListener('mousedown', handleClickOutside);
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
+    const timeoutRef = useRef(null)
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = setTimeout(() => {
+            setMenuOpen(false);
+        }, 5000);
+        console.log("toggle", menuOpen)
     };
 
-    // console.log("referencia", menuRef)
+    const handleOptionClick = () => {
+
+            setMenuOpen(false);
+
+    };
+
+
 
 
     return (
@@ -44,13 +43,19 @@ const NavBar = () => {
 
 
             <ul className={styles.navigation}>
-                <li><Link to="/"> Inicio </Link></li>
-                <li> <Link to="/portfolio"> Portfólio</Link></li>
-                <li> <a href="#about"> Sobre Nós </a></li>
-                <li> <a href='#contact'>Contato </a></li>
+                <li><Link to="/" onClick={handleOptionClick}> Inicio </Link></li>
+                <li> <Link to="/portfolio" onClick={handleOptionClick}> Portfólio</Link></li>
+
+                {location.pathname !== '/portfolio' && (
+                    <>
+                        <li> <a href="#about" onClick={handleOptionClick}> Sobre Nós </a></li>
+                        <li> <a href='#contact' onClick={handleOptionClick}>Contato </a></li>
+
+                    </>
+                )}
             </ul>
 
-            <SocialMedia />
+            <SocialMedia customClass='border_left' />
 
 
 

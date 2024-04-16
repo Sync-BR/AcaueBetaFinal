@@ -1,6 +1,7 @@
 .container_nav {
     display: flex;
 
+
     input {
 
         margin-right: 40px;
@@ -80,15 +81,18 @@
 
     a:hover {
         color: yellowgreen;
+        background-color: #7b7b7b;
 
     }
 
 
-
-    ul {
+    .navigation {
         display: flex;
-        gap: 1vw;
+        margin-right: 0.5vw;
         align-items: center;
+        li {
+            margin-right: 1vw;
+        }
     }
 
     .navigation li:nth-child(1) {
@@ -121,7 +125,7 @@
 
 
         label {
-            position: relative;
+            position: fixed;
 
             .menu {
                 position: absolute;
@@ -134,17 +138,20 @@
         }
 
 
-        ul {
+        .navigation, ul {
             display: none;
             width: 150px;
             background-color: #fff;
             padding: 20px 0px;
+            z-index: 2;
+           
 
         }
 
         input:checked~.navigation {
+            position: fixed;
             display: block;
-            position: absolute;
+            z-index: 100;
             background-color: rgba(0, 0, 0, 0.5);
             top: 10vh;
             right: -10px;
@@ -168,6 +175,7 @@
 
     .navigation li:nth-child(1) {
         color: rgba(0, 0, 0, 0.5);
+        list-style: none;
 
     }
 
