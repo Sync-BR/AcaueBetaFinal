@@ -13,6 +13,32 @@ html{
 body {
   background-color: #000000;
   padding: 4vh 10vw 13vh 10vw;
+
+  @media (min-width:1444px){
+    padding: 4vh 17vw 13vh 17vw;
+  
+  }
+
+  @media (min-width:1800px){
+    padding: 4vh 25vw 13vh 25vw;
+  
+  }
+
+  @media (min-width:2200px){
+    padding: 4vh 28vw 13vh 28vw;
+  
+  }
+
+  @media (min-width:3000px){
+    padding: 4vh 33vw 13vh 33vw;
+  
+  }
+
+  @media (min-width:3500px){
+    padding: 4vh 35vw 13vh 35vw;
+  
+  }
+
 }
 
 li {

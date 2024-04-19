@@ -45,11 +45,6 @@
     cursor: pointer;
 }
 
-.swiper {
-    z-index: 0;
-}
-
-
 
 .swiper-pagination-bullet {
     background-color: gold;
@@ -60,7 +55,6 @@
 .swiper-button-prev,
 .swiper-button-next {
     color: gold;
-
     background-color: black;
     border-radius: 50%;
     padding: 1rem 1rem;
@@ -81,6 +75,14 @@
 .swiper-button-next:after {
     font-size: 15px;
 
+}
+
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+  cursor: auto;
+  pointer-events: auto;
+  
+  
 }
 
 

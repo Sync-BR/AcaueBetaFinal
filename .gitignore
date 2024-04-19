@@ -24,7 +24,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-/frontend/nbproject
 
 # /api/nbproject/private/
 
