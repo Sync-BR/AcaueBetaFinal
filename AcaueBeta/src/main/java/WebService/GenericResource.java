@@ -1,10 +1,10 @@
 package WebService;
-
+import com.google.gson.Gson;
 import Beans.EmailBeans;
 import Beans.Registerpopup;
 import Dao.EmailDao;
 import Dao.PostDao;
-import com.google.gson.Gson;
+import static Dao.PostDao.Description1;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.core.Context;
@@ -105,13 +105,23 @@ public class GenericResource {
 
         for (int i = 0; i < PostDao.TitlePost.size(); i++) {
             List<String> post = new ArrayList<>();
+            post.add(PostDao.PostID.get(i));
             post.add(PostDao.TitlePost.get(i));
             post.add(PostDao.DescricaoPost.get(i));
             post.add(PostDao.ImagePost.get(i));
+            post.add(PostDao.imagePost1.get(i));
+            post.add(PostDao.Description1.get(i));
+            post.add(PostDao.imagePost2.get(i));
+            post.add(PostDao.Description2.get(i));
+            post.add(PostDao.imagePost3.get(i));
+            post.add(PostDao.Description3.get(i));
+            post.add(PostDao.imagePost4.get(i));
+            post.add(PostDao.Description4.get(i));
             postArrays.add(post);
         }
+        
         String jsonPosts = new Gson().toJson(postArrays);
-
+        
         return jsonPosts;
     }
 

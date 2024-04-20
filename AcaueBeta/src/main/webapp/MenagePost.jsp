@@ -1,13 +1,10 @@
 
 
+<%@page import="Util.Settings"%>
 <%@page import="com.mysql.cj.x.protobuf.MysqlxCrud.Update"%>
 <%@page import="Dao.LoginDao"%>
 <%@page import="Dao.PostDao"%>
-<%
-    if (!LoginDao.Conectado) {
-        response.sendRedirect("index.jsp");
-    }
-%>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -74,22 +71,35 @@
 
                 <br>
                 <section class="Content"> 
-                    <%                        
-if (PostDao.UpdateAtualizado) {
+                    <%                        if (PostDao.UpdateAtualizado) {
                             PostDao Retornar = new PostDao();
+                            ReturnPostagens.ReturnAllPost();
                             out.println("<form action=\"./UpdatePost\" method=\"post\">");
-                            out.println("\t<label>Arquivo</label><input type=\"file\" name=\"UpdateIMG\" style=\"width: 100%\""  + PostDao.Img.get(0).toString() + "\"><br>");
-                            out.println("\t<label>Tï¿½tulo: </label><input type=\"text\" name=\"UpdateTitulo\"  style=\"width: 100%\" value=\"" + PostDao.Title.get(0) + "\"><br>");
-                            out.println("\t<label>Descriï¿½ï¿½o</label><input value=\"" + PostDao.Description.get(0).toString() + "\" type=\"text\" name=\"UpdateDescricao\" style=\"height: 100px; width: 100%\"><br>");
-                            out.println("\t<input type=\"submit\" value=\"Alterar\" style=\"width: 100%\" name=\"Alterar\" />");
-                            out.print("<br>");
-                            out.println("\t<input type=\"submit\" value=\"Apagar\" style=\"width: 100%\" name=\"Apagar\" />");
+                            out.println("<label>Arquivo</label><input  type=\"file\" name=\"UpdateIMG\" style=\"width: 100%\"\"><br>");
+ 
+                            out.println("<label>Titulo: </label><input type=\"text\" name=\"UpdateTitulo\"  style=\"width: 100%\" value=\"" + PostDao.Titles + "\"><br>");
+                            out.println("<label>Descrição</label><input value=\"" + PostDao.description + "\" type=\"text\" name=\"UpdateDescricao\" style=\"height: 100px; width: 100%\"><br>");
+                            
+                            //Alterar informações da coleção
+                                out.println("<label>Arquivo</label><input type=\"file\" name=\"UpdateIMG1\" style=\"width: 100%\"><br>");
+                                out.println("<label>Descrição</label><input value=\"" + PostDao.Description.get(0) + "\" type=\"text\" name=\"UpdateDescricao1\" style=\"height: 100px; width: 100%\"><br>");
+                                out.println("<label>Arquivo</label><input type=\"file\" name=\"UpdateIMG2\" style=\"width: 100%\"><br>");
+                                out.println("<label>Descrição</label><input value=\"" + PostDao.Description.get(1) + "\" type=\"text\" name=\"UpdateDescricao2\" style=\"height: 100px; width: 100%\"><br>");
+                                out.println("<label>Arquivo</label><input type=\"file\" name=\"UpdateIMG3\" style=\"width: 100%\"><br>");
+                                out.println("<label>Descrição</label><input value=\"" + PostDao.Description.get(2) + "\" type=\"text\" name=\"UpdateDescricao3\" style=\"height: 100px; width: 100%\"><br>");
+                                out.println("<label>Arquivo</label><input type=\"file\" name=\"UpdateIMG4\" style=\"width: 100%\"><br>");
+                                out.println("<label>Descrição</label><input value=\"" + PostDao.Description.get(3) + "\" type=\"text\" name=\"UpdateDescricao4\" style=\"height: 100px; width: 100%\"><br>");
+
+                            
+
+                            out.println("<input type=\"submit\" value=\"Alterar\" style=\"width: 100%\" name=\"Alterar\" />");
+                            out.println("<input type=\"submit\" value=\"Apagar\" style=\"width: 100%\" name=\"Apagar\" />");
                         }
                         PostDao.UpdateAtualizado = false;
                     %> 
                     <%
                         System.out.println("Boolean " + PostDao.UpdateSucess);
-
+/*
                         if (PostDao.UpdateSucess) {
                             if (PostDao.Img.size() > 0) {
                                 for (int index = 0; index < PostDao.Img.size(); index++) {
@@ -114,13 +124,13 @@ if (PostDao.UpdateAtualizado) {
                             }
 
                         }
+                        */
 
 
                     %>
-                    
-                    
-                    <%
-                        if (PostDao.DeletePostSucess) {
+
+
+                    <%                        if (PostDao.DeletePostSucess) {
                             out.print(PostDao.Status);
                         }
                     %>

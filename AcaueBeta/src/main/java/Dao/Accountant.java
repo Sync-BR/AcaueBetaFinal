@@ -48,7 +48,7 @@ public class Accountant {
         PreparedStatement stm = null;
         ResultSet rs = null;
         try {
-            String sql = "SELECT * FROM acauebeta.postagem";
+            String sql = "SELECT * FROM acauebeta.posts";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             rs = stm.executeQuery();

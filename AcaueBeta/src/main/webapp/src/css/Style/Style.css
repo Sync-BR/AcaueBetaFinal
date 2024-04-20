@@ -1,8 +1,8 @@
 body{
     background-color: black;
-    height: 100vh;
     position: relative;
-    overflow: hidden;
+    height: 100vh;
+    overflow-x: hidden;
 }
 header{
     background-color: rgba(148, 129, 24, 0.08);

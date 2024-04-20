@@ -6,6 +6,7 @@ package Servlets;
 
 import Beans.PostBeans;
 import Dao.PostDao;
+import static Dao.PostDao.Titulo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,12 +32,15 @@ public class ServeletsChangePost extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("teste");
         PostDao ReturnPost = new PostDao();
         PostBeans addpost = new PostBeans();
+        addpost.setTitle(request.getParameter("PostagemCadastrada"));
         PostDao.Titulo = request.getParameter("PostagemCadastrada");
          PostDao.UpdateAtualizado = true;
+         
+         
          try{
+             
              ReturnPost.UpdatePostS(addpost);
          } catch(Exception e){
              e.printStackTrace();

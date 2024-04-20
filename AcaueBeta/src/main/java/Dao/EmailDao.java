@@ -59,8 +59,8 @@ public class EmailDao {
             rs = stm.executeQuery();
             while (rs.next()) {
                 CadName.add(rs.getString("name"));
-                CadSobre.add(rs.getString("SobreNome"));
-                CadEmail.add(rs.getString("Email"));
+                CadSobre.add(rs.getString("surname"));
+                CadEmail.add(rs.getString("email"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
