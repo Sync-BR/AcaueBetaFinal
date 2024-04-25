@@ -35,12 +35,12 @@ CREATE TABLE `acauebeta`.`posts` (
 INSERT INTO `acauebeta`.`usuarios` (`idUsuarios`, `Login`, `Password`) VALUES ('1', 'SYNC', '33910114');
 
 /*Criar tabela de Emails*/
-CREATE TABLE `acauebeta`.`email` (
+CREATE TABLE `acauebeta`.`contato` (
   `idEmail` INT NOT NULL AUTO_INCREMENT,
-  `Nome` VARCHAR(45) NOT NULL,
-  `Email` VARCHAR(100) NOT NULL,
-  `Mensagem` VARCHAR(500) NOT NULL,
-  PRIMARY KEY (`idEmail`, `Nome`));
+  `name` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `message` VARCHAR(500) NOT NULL,
+  PRIMARY KEY (`idEmail`, `name`));
 /*Criar campo para o popup*/
 CREATE TABLE `acauebeta`.`cadastroemail` (
   `idCadastroEmail` INT NOT NULL AUTO_INCREMENT,

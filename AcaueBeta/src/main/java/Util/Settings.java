@@ -15,7 +15,7 @@ public class Settings {
     public static String User = "root";
     public static String Pass = "";
     public static String Db = "acauebeta";
-    public static String Upload = "C:/Users/Eduar/Desktop/AcaueBetaFinal/frontend/src/images/posts/" ;
+    public static String Upload = "C:/Users/Eduar/OneDrive/Área de Trabalho/AcaueBetaFinal/frontend/src/images/posts" ;
 
     public static String Archive1;
 }
