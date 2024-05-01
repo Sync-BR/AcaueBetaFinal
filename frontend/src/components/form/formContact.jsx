@@ -21,7 +21,7 @@ const FormContact = () => {
 
             setUsers(data)
 
-            const url = `http://186.247.89.84:8080/AcaueBeta/webresources/generic/Cadastrar`;
+            const url = `https://zfaerp.hospedagemelastica.com.br/acaueBeta-1.0-SNAPSHOT/webresources/generic/Cadastrar`;
 
             const params = new URLSearchParams();
             params.append('name', data.name);

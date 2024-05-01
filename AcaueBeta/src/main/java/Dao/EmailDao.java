@@ -5,6 +5,7 @@ import Beans.PostBeans;
 import Beans.Registerpopup;
 import static Dao.PostDao.DeletePostSucess;
 import Util.Conexao;
+import Util.Settings;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,7 +25,7 @@ public class EmailDao {
         Connection conexao = null;
         PreparedStatement stm = null;
         try{
-        String sql = "DELETE  FROM  acauebeta.contato where name = ?";
+        String sql = "DELETE  FROM  " +Settings.Db+".contato where name = ?";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             stm.setString(1, DeleteEmail.getName());
@@ -53,7 +54,7 @@ public class EmailDao {
         CadSobre.removeAll(CadSobre);
         CadEmail.removeAll(CadEmail);
         try {
-            String sql = "SELECT * FROM acauebeta.cadastroemail";
+            String sql = "SELECT * FROM " +Settings.Db+".cadastroemail";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             rs = stm.executeQuery();
@@ -85,7 +86,7 @@ public class EmailDao {
         Email.removeAll(Email);
         Mensagem.removeAll(Mensagem);
         try {
-            String sql = "SELECT * FROM acauebeta.contato";
+            String sql = "Select * from " +Settings.Db+ ".contato";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             rs = stm.executeQuery();
@@ -109,8 +110,8 @@ public class EmailDao {
         Connection conexao = null;
         PreparedStatement stm = null;
         try {
+            String sql = "INSERT INTO " +Settings.Db+".contato  (name , email, message)  VALUES (?,?,?)";
             conexao = Conexao.getConnection();
-            String sql = "INSERT INTO acauebeta.contato  (name , email, message)  VALUES (?,?,?)";
             stm = conexao.prepareStatement(sql);
             stm.setString(1, AddMail.getName());
             stm.setString(2, AddMail.getEmail());
@@ -133,7 +134,7 @@ public class EmailDao {
         PreparedStatement stm = null;
         try {
             conexao = Conexao.getConnection();
-            String sql = "INSERT INTO acauebeta.cadastroemail  (name , surname, email)  VALUES (?,?,?)";
+            String sql = "INSERT INTO " +Settings.Db+".cadastroemail  (name , surname, email)  VALUES (?,?,?)";
             stm = conexao.prepareStatement(sql);
             stm.setString(1, AddMail.getName());
             stm.setString(2, AddMail.getSurname());
@@ -159,7 +160,7 @@ public class EmailDao {
         ResultSet rs = null;
         try {
             conexao = Conexao.getConnection();
-            String sql = "Select * from acauebeta.email where contato = ?";
+            String sql = "Select * from " +Settings.Db+".email where contato = ?";
             stm = conexao.prepareStatement(sql);
             stm.setString(1, AddMail.getEmail());
             rs = stm.executeQuery();

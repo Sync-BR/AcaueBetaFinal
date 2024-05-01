@@ -4,7 +4,14 @@
 <%@page import="com.mysql.cj.x.protobuf.MysqlxCrud.Update"%>
 <%@page import="Dao.LoginDao"%>
 <%@page import="Dao.PostDao"%>
-
+<%
+    if (!LoginDao.Conectado) {
+        response.sendRedirect("index.jsp");
+    }
+    if(LoginDao.Status == null){
+        LoginDao.Status = "";
+    }
+%>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -74,7 +81,7 @@
                     <%                        if (PostDao.UpdateAtualizado) {
                             PostDao Retornar = new PostDao();
                             ReturnPostagens.ReturnAllPost();
-                            out.println("<form action=\"./UpdatePost\" method=\"post\">");
+                            out.println("<form action=\"./UpdatePost\" method=\"post\" enctype=\"multipart/form-data\">");
                             out.println("<label>Arquivo</label><input  type=\"file\" name=\"UpdateIMG\" style=\"width: 100%\"\"><br>");
  
                             out.println("<label>Titulo: </label><input type=\"text\" name=\"UpdateTitulo\"  style=\"width: 100%\" value=\"" + PostDao.Titles + "\"><br>");

@@ -1,25 +1,28 @@
-
 package Util;
 
-import java.sql.Statement;
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.DriverManager;
 
 public class Conexao {
-     private static Connection conexao = null;
+
+    private static Connection conexao = null;
 
     public static Connection getConnection() throws Exception {
+
+
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            return DriverManager.getConnection("jdbc:mysql://"+Settings.Host+"/" +Settings.Db, Settings.User, Settings.Pass);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+           
+            return DriverManager.getConnection(Settings.Host+"/"+ Settings.Db+"?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC", Settings.User, Settings.Pass);
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Erro nesta linha " +e);
         }
         return conexao;
     }
+
     /**
      *
      * @author SYNC
@@ -41,6 +44,7 @@ public class Conexao {
             throw new Exception(e.getMessage());
         }
     }
+
     private static void close(Connection conn, Statement stmt, ResultSet rs) throws Exception {
         try {
             if (rs != null) {
@@ -71,4 +75,5 @@ public class Conexao {
     public static void closeConnection(Connection conn) throws Exception {
         closeConnection(conn, null, null);
     }
+
 }

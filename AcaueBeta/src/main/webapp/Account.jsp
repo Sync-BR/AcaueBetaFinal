@@ -1,10 +1,13 @@
-<!-- <%@page import="Dao.LoginDao"%>
+ <%@page import="Dao.LoginDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    if(!LoginDao.Conectado){
+    if (!LoginDao.Conectado) {
         response.sendRedirect("index.jsp");
     }
-%> -->
+    if(LoginDao.Status == null){
+        LoginDao.Status = "";
+    }
+%>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>

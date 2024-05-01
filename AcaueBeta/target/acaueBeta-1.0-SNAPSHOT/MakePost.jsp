@@ -1,7 +1,16 @@
+<%@page import="Dao.LoginDao"%>
 <%@page import="Dao.PostDao"%>
 <%
     PostDao Reset = new PostDao();
     Reset.Posted = false;
+%>
+<%
+    if (!LoginDao.Conectado) {
+        response.sendRedirect("index.jsp");
+    }
+    if(LoginDao.Status == null){
+        LoginDao.Status = "";
+    }
 %>
 
 <!DOCTYPE html>
