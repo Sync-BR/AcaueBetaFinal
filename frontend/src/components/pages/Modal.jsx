@@ -1,23 +1,23 @@
 import axios from 'axios';
+import { useForm } from 'react-hook-form';
+import { IoMdClose } from "react-icons/io";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import styles from './modal.module.scss'
 import Input from "../form/input"
 import SubmitButton from "../form/submitBtn";
-import { useForm } from 'react-hook-form';
-import { useState } from "react";
-
 
 const Modal = ({ isOpen, handleClose }) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
-    const [data, setData] = useState({})
 
     const handleSubmitForm = async (data) => {
         try {
             reset()
-            setData(data)
 
             handleClose();
-            const url = `http://186.247.89.84:8080/AcaueBeta/webresources/generic/RegisterPopup`;
+            const url = `http://syncbackend.ddns.net:8080/acaueBeta-1.0-SNAPSHOT/webresources/generic/RegisterPopup`;
 
             const params = new URLSearchParams();
             params.append('name', data.name);
@@ -25,10 +25,16 @@ const Modal = ({ isOpen, handleClose }) => {
             params.append('email', data.email);
 
             await axios
-            .post(url, params)
-            .then((data) => data.config)
-            .then((data) => console.log("sucesso! ", data.data))
-            .catch((data) => console.error("deu ruim ", data))
+                .post(url, params)
+                .then((data) => {
+                    console.log('sucesso!', data.config)
+                    toast.success('Sucesso!!')
+
+                })
+                .catch((err) => {
+                    console.log('error Modal',  err.response.data)
+                    toast.error("Erro ao enviar mensagem")
+                })
 
         } catch (error) {
             console.error('Erro:', error);
@@ -40,13 +46,13 @@ const Modal = ({ isOpen, handleClose }) => {
         return (
             <div className={styles.container_modal}>
                 <div className={styles.modal}>
-                    <h1>Preencha Agora Este Karalho</h1>
-                    <button className={styles.btn_close} onClick={() => handleClose()}>Fechar</button>
+                    <h1>Preencha os Campos</h1>
+                    <button className={styles.btn_close} onClick={() => handleClose()}><IoMdClose size={20} /></button>
                     <form className={styles.modal_form} onSubmit={handleSubmit(handleSubmitForm)}>
                         <Input
                             name="name"
                             type="text"
-                            placeholder="Nome"
+                            placeholder="Digite seu Nome"
                             text="Nome"
                             {...register('name', {
                                 required: "Campo obrigatório",
@@ -57,7 +63,7 @@ const Modal = ({ isOpen, handleClose }) => {
                         <Input
                             name="surname"
                             type="text"
-                            placeholder="Sobrenome"
+                            placeholder="Digite o Sobrenome"
                             text="Sobrenome"
                             {...register('surname', {
                                 required: "Campo obrigatório",

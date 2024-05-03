@@ -1,7 +1,7 @@
 
 import axios from 'axios';
-
-import { useUsers } from '../contexts/usersContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import styles from './form_contact.module.scss';
 import Input from "./input";
@@ -9,39 +9,63 @@ import TextArea from "./textArea";
 import SubmitButton from "./submitBtn";
 import { useForm } from 'react-hook-form';
 
+let nada = "nadinha mermo"
+
+if (!nada) {
+    nada = "tudo agora"
+}else {
+    nada =" -bem tambem"
+}
+const tudo = nada + nada
+
 const FormContact = () => {
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const { users, setUsers } = useUsers();
 
-
+    const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
     const handleSubmitForm = async (data) => {
         try {
             reset()
-
-            setUsers(data)
-
-            const url = `http://186.247.89.84:8080/AcaueBeta/webresources/generic/Cadastrar`;
-
+            console.log('passei 1')
+            console.log('passei 2', data.message)
+            
+            const url = `http://syncbackend.ddns.net:8080/acaueBeta-1.0-SNAPSHOT/webresources/generic/Cadastrar`;
+            
             const params = new URLSearchParams();
             params.append('name', data.name);
             params.append('email', data.email);
             params.append('message', data.message);
 
+            console.log('passei33 ')
+            
+            
             await axios
             .post(url, params)
-            .then((data) => data.config)
-            .then((data) => console.log("sucesso! ", data.data))
-            .catch((data) => console.error("deu ruim", data))
+            console.log('to passando3')
+            .then((data) => {
+                console.log('sucesso!!!', data.config)
+                toast.success('Contato enviado com sucesso!')
+            })
+            console.log('to passando4')
+            .catch((error) => {
+                console.error('deu ruim', error)
+                toast.error("Ocorreu um erro ao enviar o contato.")
+            })
     
         } catch (error) {
             console.error('Erro:', error);
-            alert('Erro ao enviar dados. Por favor, tente novamente.');
+            console.log('Cai na vara')
+            toast.error('Erro ao enviar os dados, tente novamente.', {
+                position: 'bottom-left',
+                closeOnClick: false,
+                draggable: true,
+                
+            })
         }
     };
 
     return (
         <div id='contact' className={styles.container_contact}>
+            <ToastContainer closeOnClick={true} />
             <div className={styles.contact}>
                 <p>Entre</p>
                 <span></span>
@@ -56,7 +80,6 @@ const FormContact = () => {
                     text="Nome"
                     {...register('name', {
                         required: "Campo obrigatório",
-
                     })}
                 />
                 {errors.name && <p className={styles.required}>{errors.name.message}</p>}

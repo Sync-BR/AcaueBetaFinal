@@ -2,6 +2,7 @@ import logo1 from '../../images/prima.png'
 import logo2 from '../../images/segu.png'
 import logo3 from '../../images/terc.png'
 
+
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -30,9 +31,9 @@ const Portfolio = () => {
 
     useEffect(() => {
         function handleResize() {
-            if (window.innerWidth <= 420) {
+            if (window.innerWidth <= 620) {
                 setPreview(1)
-            } else if (window.innerWidth > 420 && window.innerWidth < 768) {
+            } else if (window.innerWidth > 620 && window.innerWidth < 1100) {
                 setPreview(2)
             } else {
                 setPreview(3)
@@ -43,8 +44,19 @@ const Portfolio = () => {
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
+    const handleLinkClick = (e) => {
+        e.preventDefault();
+        if (window.innerWidth <= 768) {
+            setTimeout(() => {
+                window.location.href = e.target.getAttribute('href');
+            }, 700);
+        } else {
+            window.location.href = e.target.getAttribute('href');
+        }
+    };
+
     return (
-        <div className="container_slide">
+        <div className='container_slide'>
             <div className='title_port'>
                 <p>Portfólio</p>
                 <span></span>
@@ -57,21 +69,23 @@ const Portfolio = () => {
 
                 {imgData.map((img) => (
                     <SwiperSlide key={img.id}>
-                        <Link to={`/project/${img.id}`}><img
-                            src={img.image}
-                            alt="Logo_teste"
-                            className='slide-item'
-                        />
+                        <Link 
+                        to={`/project/${img.id}`}
+                        >
+
+                            <img
+                                src={img.image}
+                                alt='Logo_teste'
+                                className='slide-item'
+                            />
                         </Link>
-                        <h4>Tutulo new</h4>
+                        <h4>Título new</h4>
                         <p>Descrição New</p>
                     </SwiperSlide>
                 ))}
             </Swiper>
 
-         
-                <Link className='btn_projetos' to="/portfolio"> Veja todos os projetos</Link>
-           
+            <Link className='btn_projetos' onClick={handleLinkClick} to="/portfolio"> Veja todos os projetos</Link>
         </div>
 
     )

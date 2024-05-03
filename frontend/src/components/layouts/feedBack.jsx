@@ -10,13 +10,17 @@ import './feedback.css'
 
 const FeedBack = () => {
 
+    const commit = "lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quod.Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quodyy."
+
+    const commitResponsive = "lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quodR."
+
     const feedBack = [
-        { id: '1', name: "Yann o Brabo", commit: "lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quod.Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quod." },
-        { id: '2', name: "Acaue o Brabo", commit: "lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quod.Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quod." },
-        { id: '3', name: "Sync o Brabo", commit: "lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quod.Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quod." },
-        { id: '4', name: "ShoTWD o Brabo", commit: "lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quod.Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quod." },
-        { id: '5', name: "DsVrog o Brabo", commit: "lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quod.Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quod." },
-        { id: '6', name: "400kg o Brabo", commit: "lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quod.Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quod." }
+        { id: '1', name: "Yann o Brabo", commitResponsive: commitResponsive, commit: commit },
+        { id: '2', name: "Acaue o Brabo", commitResponsive: commitResponsive, commit: commit },
+        { id: '3', name: "Sync o Brabo", commitResponsive: commitResponsive, commit: commit },
+        { id: '4', name: "ShoTWD o Brabo", commitResponsive: commitResponsive, commit: commit },
+        { id: '5', name: "DsVrog o Brabo", commitResponsive: commitResponsive, commit: commit },
+        { id: '6', name: "400kg o Brabo", commitResponsive: commitResponsive, commit: commit }
     ]
 
     return (
@@ -25,7 +29,7 @@ const FeedBack = () => {
                 <p >Feedback</p>
                 <span></span>
             </div>
-            <h2>Dos nossos Clientes</h2>
+            <h2>Dos nossos Clientes </h2>
             <Swiper
                 slidesPerView={1}
                 navigation>
@@ -33,10 +37,9 @@ const FeedBack = () => {
                 {feedBack.map((item) => (
                     <SwiperSlide key={item.id}>
                         <div className="card_feedback">
-                            <p>{item.commit}</p>
+                            <p>{window.innerWidth <= 768 ? item.commitResponsive : item.commit}</p>
                             <h3>{item.name}</h3>
                         </div>
-                        <div className="space"></div>
                     </SwiperSlide>
                 ))}
             </Swiper>

@@ -49,7 +49,7 @@
             </nav>
             <main>
                 <h2>Account setup</h2>
-                <br><br>
+                <br />
                 <form action="./ServletChangePassword" method="post" class="ConfigurationForm">
                     <label>
                         <p class="AccountTxT">Usuario</p>

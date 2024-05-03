@@ -1,9 +1,7 @@
 .container_nav {
     display: flex;
 
-
     input {
-
         margin-right: 40px;
         display: none;
 
@@ -22,7 +20,6 @@
         }
     }
 
-
     label {
         display: flex;
         flex-direction: column;
@@ -36,18 +33,18 @@
 
             .hamburguer {
 
-                background-color: #e5ed06;
+                background-color: #e5914e;
                 position: relative;
                 display: block;
                 width: 30px;
                 height: 2px;
                 top: 29px;
-                left: 15px;
+                left: 20px;
                 transition: 0.5s ease-in-out;
 
                 &::before,
                 &::after {
-                    background-color: #daf10d;
+                    background-color: #e5914e;
                     content: "";
                     display: block;
                     width: 100%;
@@ -75,14 +72,9 @@
         transition: 0.4s ease-in-out;
     }
 
-    a:visited {
-        color: gold;
-    }
 
     a:hover {
-        color: yellowgreen;
-        background-color: #7b7b7b;
-
+        color: #e5914e;
     }
 
 
@@ -97,26 +89,34 @@
 
     .navigation li:nth-child(1) {
         list-style: disc;
-        color: yellowgreen;
+        color: #e5914e;
         height: max-content;
     }
 
     .navigation li:nth-child(1):hover {
-        list-style: circle;
+        color: rgb(255, 255, 255);
 
     }
 
+    .navigation li .home:hover {
+        color: rgb(255, 255, 255);
 
-    .navigation li:last-child {
-        padding-right: 2vw;
-        border-right: 2px solid #fff;
-        margin-right: 2vw;
-        height: max-content;
     }
 
-
+    @media (min-width:1440px) {
+       a {
+        font-size: 1.7rem;
+       }
+      
+    }
 
     @media (max-width: 900px) {
+
+        .navigation li:nth-child(1) {
+            list-style: none  ;
+            height: auto;
+        }
+    
 
         position: absolute;
         top: 10px;
@@ -167,20 +167,11 @@
         }
     }
 
-    .navigation li:last-child {
-        border-right: none;
-        margin-right: 0;
-        padding-right: 0;
-    }
+    // .navigation li:last-child {
+    //     border-right: none;
+    //     margin-right: 0;
+    //     padding-right: 0;
+    // }
 
-    .navigation li:nth-child(1) {
-        color: rgba(0, 0, 0, 0.5);
-        list-style: none;
-
-    }
-
-    .navigation li:nth-child(1):hover {
-        list-style: none;
-
-    }
+   
 }

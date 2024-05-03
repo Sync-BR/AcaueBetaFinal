@@ -12,26 +12,24 @@ const SocialMedia = ({ customClass }) => {
 
     return (
         <ul className={styles.container_network}>
-            <span></span>
-            <li className={`${styles.item} ${styles.insta_item} ${styles[customClass]}`}>
+            {/* <span></span> */}
+            <li className={`${styles.item}  ${styles[customClass]}`}>
                 <a href='#'>
-                    <FaInstagram size={20} />
+                    <FaInstagram className={`${styles.insta_item} ${styles.icon}`} size={20} />
                 </a>
             </li>
 
-            <li className={`${styles.item} ${styles.wpp_item}`}>
+            <li className={`${styles.item}`}>
                 <a href='#'>
-                    <FaWhatsapp size={20} />
+                    <FaWhatsapp className={`${styles.wpp_item} ${styles.icon}`}  size={20} />
                 </a>
             </li>
 
-            <li className={`${styles.item} ${styles.behance}`}>
+            <li className={`${styles.item} `}>
                 <a href='#'>
-                    <FaBehance size={20} />
+                    <FaBehance className={`${styles.behance_item} ${styles.icon}`} size={20} />
                 </a>
             </li>
-
-
         </ul>
 
     )

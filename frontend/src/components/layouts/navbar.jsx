@@ -2,7 +2,7 @@ import styles from './navbar.module.scss';
 import SocialMedia from './socialMedia';
 import { Link, useLocation } from 'react-router-dom';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 
 
 const NavBar = () => {
@@ -27,9 +27,6 @@ const NavBar = () => {
 
     };
 
-
-
-
     return (
         <nav className={styles.container_nav}>
 
@@ -43,7 +40,7 @@ const NavBar = () => {
 
 
             <ul className={styles.navigation}>
-                <li><Link to="/" onClick={handleOptionClick}> Inicio </Link></li>
+                <li><Link className={styles.home} to="/" onClick={handleOptionClick}> Inicio </Link></li>
                 <li> <Link to="/portfolio" onClick={handleOptionClick}> Portfólio</Link></li>
 
                 {location.pathname !== '/portfolio' && (

@@ -5,14 +5,33 @@
     
     li {
         margin-left: 1vw;
+        .insta_item {
+            color:   #C13584;
+        }
+
+        .wpp_item {
+            color: #25D366;
+        }
+
+        .behance_item {
+            color: #1769FF;
+        }
+
+        .icon {
+            transition: 0.5s ease-in-out;
+            opacity: 0.6;
+        }
+
+        .icon:hover {
+            cursor: pointer;
+            opacity: 1;
+        }
     }
 
 }
 
 .border_left {
-    border-left: 2px solid #ffbb33;
+    border-left: 3px solid #ffffff;
     padding-left: 1.5vw;
-    
-    
 
 }
