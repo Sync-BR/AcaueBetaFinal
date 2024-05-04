@@ -86,7 +86,6 @@
                             ReturnEmails.ReturnRegisteredEmail();
                              
                             for (int index = 0; index < EmailDao.Email.size(); index++) {
-                                if (index < 5) {
                                 out.print("<form action=\"./ServletDeleteEmail\" method=\"POST\">");
                                     out.print("<tr>");
                                     out.print("<th scope=\"row\" class=\"MenageTD\"  value=\"teste\">" + EmailDao.Name.get(index) + "</th>");
@@ -97,10 +96,7 @@
                                     
                                     out.print("</tr>");
                                      out.print("</form>");
-                                } else {
-
-                                    break;
-                                }
+                                
 
                             }
                             
