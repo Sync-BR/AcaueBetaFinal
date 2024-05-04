@@ -4,7 +4,6 @@ import Beans.EmailBeans;
 import Beans.Registerpopup;
 import Dao.EmailDao;
 import Dao.PostDao;
-import static Dao.PostDao.Description1;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.core.Context;
@@ -19,9 +18,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-/*
-import javax.ws.rs.core.UriBuilder;
- */
 /**
  * REST Web Service
  *
@@ -43,14 +39,14 @@ public class GenericResource {
      */
     @Path("/Cadastrar")
     @POST
-    public Response Cadastrar(@FormParam("name") String Nome,
-            @FormParam("email") String Email,
-            @FormParam("message") String Mensagem) throws Exception {
+    public Response Cadastrar(@FormParam("name") String name,
+            @FormParam("email") String email,
+            @FormParam("message") String message) throws Exception {
         EmailBeans AddEmail = new EmailBeans();
         EmailDao Cadastrar = new EmailDao();
-        AddEmail.setName(Nome);
-        AddEmail.setEmail(Email);
-        AddEmail.setMensagem(Mensagem);
+        AddEmail.setName(name);
+        AddEmail.setEmail(email);
+        AddEmail.setMensagem(message);
         try {
             Cadastrar.RegisterEmail(AddEmail);
         } catch (Exception e) {

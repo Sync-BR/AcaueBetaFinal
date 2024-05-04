@@ -21,7 +21,7 @@
             <h1>Painel Administrador</h1>
         </header>
         <main>
-            <form method="post" action="ServletLogin">
+            <form method="post" action="./ServletLogin">
                 <div class="Fildbox">
                     <div class="FildboxLabel">
                         <label>Usuário:&nbsp;</label>

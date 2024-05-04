@@ -2,6 +2,7 @@ package Dao;
 
 import Beans.LoginBeans;
 import Util.Conexao;
+import Util.Settings;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,7 +35,7 @@ public class LoginDao {
         Conectado = false;
         Status = null;
         try {
-            String sql = "SELECT * FROM acauebeta.usuarios WHERE Login = ? AND Password = ?";
+            String sql = "SELECT * FROM " +Settings.Db+".usuarios WHERE Login = ? AND Password = ?";
             conexao = Conexao.getConnection();
             ps = conexao.prepareStatement(sql);
             ps.setString(1, login.getUsuario());
@@ -79,7 +80,7 @@ public class LoginDao {
         ResultSet rs = null;
         LoginBeans AddLogin = new LoginBeans();
         try {
-            String sql = "select * from acauebeta.usuarios";
+            String sql = "select * from " +Settings.Db+".usuarios";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             rs = stm.executeQuery();
@@ -115,7 +116,7 @@ public class LoginDao {
         Status = "";
         int sucess = 0;
         try {
-            String sql = "Update acauebeta.usuarios set Password = ? WHERE Login = ?";
+            String sql = "Update " +Settings.Db+".usuarios set Password = ? WHERE Login = ?";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             stm.setString(1, login.getPassword());
@@ -144,7 +145,7 @@ public class LoginDao {
         PreparedStatement stm = null;
         int StatusChange;
         try {
-            String sql = "Update acauebeta.usuarios set Login = ? WHERE Login = ?";
+            String sql = "Update " +Settings.Db+".usuarios set Login = ? WHERE Login = ?";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             stm.setString(1, AddLogin.getUsuario());

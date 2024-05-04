@@ -25,11 +25,11 @@ const FormContact = () => {
     const handleSubmitForm = async (data) => {
         try {
             reset()
-            console.log('passei 1')
-            console.log('passei 2', data.message)
-            
-            const url = `http://syncbackend.ddns.net:8080/acaueBeta-1.0-SNAPSHOT/webresources/generic/Cadastrar`;
-            
+
+            setUsers(data)
+
+            const url = `https://zfaerp.hospedagemelastica.com.br/acaueBeta-1.0-SNAPSHOT/webresources/generic/Cadastrar`;
+
             const params = new URLSearchParams();
             params.append('name', data.name);
             params.append('email', data.email);

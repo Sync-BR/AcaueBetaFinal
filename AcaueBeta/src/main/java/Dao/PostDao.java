@@ -2,6 +2,7 @@ package Dao;
 
 import Beans.PostBeans;
 import Util.Conexao;
+import Util.Settings;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,7 +31,7 @@ public class PostDao {
         Connection conexao = null;
         PreparedStatement stm = null;
         try {
-            String sql = "INSERT INTO acauebeta.posts (name, imageMain, descriptionMain, image1, description1,image2, description2,image3, description3,image4, description4) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO " +Settings.Db+".posts (name, imageMain, descriptionMain, image1, description1,image2, description2,image3, description3,image4, description4) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             stm.setString(1, AddPost.getTitle());
@@ -94,7 +95,7 @@ public class PostDao {
         Description4.removeAll(Description4);
 
         try {
-            String sql = "Select * from acauebeta.posts";
+            String sql = "Select * from " +Settings.Db+".posts";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             rs = stm.executeQuery();
@@ -132,7 +133,7 @@ public class PostDao {
         Connection conexao = null;
         PreparedStatement stm = null;
         UpdateAtualizado = false;
-       String sql = "UPDATE acauebeta.posts SET name = ?, descriptionMain= ?, imageMain=?, image1=?, description1=?,image2=?, description2=?,image3=?, description3=? ,image4=?, description4=? WHERE name = ?";
+       String sql = "UPDATE " +Settings.Db+".posts SET name = ?, descriptionMain= ?, imageMain=?, image1=?, description1=?,image2=?, description2=?,image3=?, description3=? ,image4=?, description4=? WHERE name = ?";
         try {
             
             conexao = Conexao.getConnection();
@@ -175,7 +176,7 @@ public class PostDao {
         UpdateAtualizado = false;
 
         try {
-            String sql = "UPDATE acauebeta.posts SET name = ?, descriptionMain= ?, description1=?, description2=?, description3=? , description4=? WHERE name = ?";
+            String sql = "UPDATE " +Settings.Db+".posts SET name = ?, descriptionMain= ?, description1=?, description2=?, description3=? , description4=? WHERE name = ?";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             stm.setString(1, AddPost.getTitle());
@@ -219,7 +220,7 @@ public class PostDao {
         Img.removeAll(Img);
         Description.removeAll(Description);
         try {
-            String sql = "Select * from acauebeta.posts where name = ?";
+            String sql = "Select * from " +Settings.Db+".posts where name = ?";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             stm.setString(1, AddPost.getTitle());
@@ -257,7 +258,7 @@ public class PostDao {
         PreparedStatement stm = null;
         DeletePostSucess = false;
         try {
-            String sql = "DELETE  FROM  acauebeta.posts where name = ?";
+            String sql = "DELETE  FROM  " +Settings.Db+".posts where name = ?";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             stm.setString(1, addpost.getTitle());

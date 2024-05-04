@@ -1,6 +1,7 @@
 package Dao;
 
 import Util.Conexao;
+import Util.Settings;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +24,7 @@ public class Accountant {
         PreparedStatement stm = null;
         ResultSet rs = null;
         try {
-            String sql = "SELECT * FROM acauebeta.contato";
+            String sql = "SELECT * FROM " +Settings.Db+".contato";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             rs = stm.executeQuery();
@@ -48,7 +49,7 @@ public class Accountant {
         PreparedStatement stm = null;
         ResultSet rs = null;
         try {
-            String sql = "SELECT * FROM acauebeta.posts";
+            String sql = "SELECT * FROM " +Settings.Db+".posts";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             rs = stm.executeQuery();
@@ -72,7 +73,7 @@ public class Accountant {
         PreparedStatement stm = null;
         ResultSet rs = null;
         try {
-            String sql = "SELECT * FROM acauebeta.cadastroemail";
+            String sql = "SELECT * FROM " +Settings.Db+".cadastroemail";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             rs = stm.executeQuery();
