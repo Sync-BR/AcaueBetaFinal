@@ -31,19 +31,19 @@ public class PostDao {
         Connection conexao = null;
         PreparedStatement stm = null;
         try {
-            String sql = "INSERT INTO " +Settings.Db+".posts (name, imageMain, descriptionMain, image1, description1,image2, description2,image3, description3,image4, description4) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO " + Settings.Db + ".posts (name, imageMain, descriptionMain, image1, description1,image2, description2,image3, description3,image4, description4) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             stm.setString(1, AddPost.getTitle());
-            stm.setString(2, AddPost.getImageMain());
+            stm.setString(2, Settings.Imagefolder + AddPost.getImageMain());
             stm.setString(3, AddPost.getDescription());
-            stm.setString(4, AddPost.getImage1());
+            stm.setString(4, Settings.Imagefolder + AddPost.getImage1());
             stm.setString(5, AddPost.getDescription1());
-            stm.setString(6, AddPost.getImage2());
+            stm.setString(6, Settings.Imagefolder + AddPost.getImage2());
             stm.setString(7, AddPost.getDescription2());
-            stm.setString(8, AddPost.getImage3());
+            stm.setString(8, Settings.Imagefolder + AddPost.getImage3());
             stm.setString(9, AddPost.getDescription3());
-            stm.setString(10, AddPost.getImage4());
+            stm.setString(10, Settings.Imagefolder + AddPost.getImage4());
             stm.setString(11, AddPost.getDescription4());
 
             int Update = stm.executeUpdate();
@@ -95,7 +95,7 @@ public class PostDao {
         Description4.removeAll(Description4);
 
         try {
-            String sql = "Select * from " +Settings.Db+".posts";
+            String sql = "Select * from " + Settings.Db + ".posts";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             rs = stm.executeQuery();
@@ -133,27 +133,27 @@ public class PostDao {
         Connection conexao = null;
         PreparedStatement stm = null;
         UpdateAtualizado = false;
-       String sql = "UPDATE " +Settings.Db+".posts SET name = ?, descriptionMain= ?, imageMain=?, image1=?, description1=?,image2=?, description2=?,image3=?, description3=? ,image4=?, description4=? WHERE name = ?";
+        String sql = "UPDATE " + Settings.Db + ".posts SET name = ?, descriptionMain= ?, imageMain=?, image1=?, description1=?,image2=?, description2=?,image3=?, description3=? ,image4=?, description4=? WHERE name = ?";
         try {
-            
+
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             stm.setString(1, AddPost.getTitle());
             stm.setString(2, AddPost.getDescription());
-            stm.setString(3, AddPost.getImageMain());
-            stm.setString(4, AddPost.getImage1());
+            stm.setString(3, Settings.Imagefolder + AddPost.getImageMain());
+            stm.setString(4, Settings.Imagefolder + AddPost.getImage1());
             stm.setString(5, AddPost.getDescription1());
-            stm.setString(6, AddPost.getImage2());
+            stm.setString(6, Settings.Imagefolder + AddPost.getImage2());
             stm.setString(7, AddPost.getDescription2());
-            stm.setString(8, AddPost.getImage3());
+            stm.setString(8, Settings.Imagefolder + AddPost.getImage3());
             stm.setString(9, AddPost.getDescription3());
-            stm.setString(10, AddPost.getImage4());
+            stm.setString(10, Settings.Imagefolder + AddPost.getImage4());
             stm.setString(11, AddPost.getDescription4());
             stm.setString(12, Titulo);
             int Result = stm.executeUpdate();
             if (Result > 0) {
                 UpdateAtualizado = true;
-                
+
             } else {
                 UpdateAtualizado = false;
             }
@@ -176,7 +176,7 @@ public class PostDao {
         UpdateAtualizado = false;
 
         try {
-            String sql = "UPDATE " +Settings.Db+".posts SET name = ?, descriptionMain= ?, description1=?, description2=?, description3=? , description4=? WHERE name = ?";
+            String sql = "UPDATE " + Settings.Db + ".posts SET name = ?, descriptionMain= ?, description1=?, description2=?, description3=? , description4=? WHERE name = ?";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             stm.setString(1, AddPost.getTitle());
@@ -220,7 +220,7 @@ public class PostDao {
         Img.removeAll(Img);
         Description.removeAll(Description);
         try {
-            String sql = "Select * from " +Settings.Db+".posts where name = ?";
+            String sql = "Select * from " + Settings.Db + ".posts where name = ?";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             stm.setString(1, AddPost.getTitle());
@@ -258,7 +258,7 @@ public class PostDao {
         PreparedStatement stm = null;
         DeletePostSucess = false;
         try {
-            String sql = "DELETE  FROM  " +Settings.Db+".posts where name = ?";
+            String sql = "DELETE  FROM  " + Settings.Db + ".posts where name = ?";
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             stm.setString(1, addpost.getTitle());
@@ -274,5 +274,7 @@ public class PostDao {
             Conexao.closeConnection(conexao, stm);
         }
     }
+
+
 
 }

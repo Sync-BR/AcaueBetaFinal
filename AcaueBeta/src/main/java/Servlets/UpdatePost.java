@@ -6,9 +6,7 @@ package Servlets;
 
 import Beans.PostBeans;
 import Dao.PostDao;
-import static Dao.PostDao.ImagePost;
 import static Dao.PostDao.Img;
-import static Dao.PostDao.imagePost1;
 import static Dao.PostDao.imgs;
 import Util.Settings;
 import java.io.IOException;
@@ -25,6 +23,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import Util.Settings;
 
 /**
  *
@@ -42,6 +41,7 @@ public class UpdatePost extends HttpServlet {
         String updateImg = request.getParameter("UpdateIMG");
         if (updateImg != null && !updateImg.trim().isEmpty()) {
             UpdatePost.setImageMain(updateImg);
+            
         } else {
             UpdatePost.setImageMain(imgs);
         }
