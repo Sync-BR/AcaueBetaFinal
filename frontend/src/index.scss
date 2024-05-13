@@ -11,9 +11,13 @@ html {
 }
 
 
-body {
+.body_projects  {
   background-color: #000000;
   padding: 4vh 10vw 13vh 10vw;
+
+  a {
+    text-decoration: none;
+  }
 
   li {
     list-style: none;

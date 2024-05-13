@@ -17,14 +17,11 @@ const NavBar = () => {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = setTimeout(() => {
             setMenuOpen(false);
-        }, 5000);
-        console.log("toggle", menuOpen)
+        }, 4000);
     };
 
     const handleOptionClick = () => {
-
             setMenuOpen(false);
-
     };
 
     return (
@@ -43,11 +40,10 @@ const NavBar = () => {
                 <li><Link className={styles.home} to="/" onClick={handleOptionClick}> Inicio </Link></li>
                 <li> <Link to="/portfolio" onClick={handleOptionClick}> Portfólio</Link></li>
 
-                {location.pathname !== '/portfolio' && (
+                {location.pathname === '/' && (
                     <>
                         <li> <a href="#about" onClick={handleOptionClick}> Sobre Nós </a></li>
                         <li> <a href='#contact' onClick={handleOptionClick}>Contato </a></li>
-
                     </>
                 )}
             </ul>
