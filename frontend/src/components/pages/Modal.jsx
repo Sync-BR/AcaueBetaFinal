@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { IoMdClose } from "react-icons/io";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import styles from './modal.module.scss'
@@ -10,35 +10,35 @@ import SubmitButton from "../form/submitBtn";
 
 const Modal = ({ isOpen, handleClose }) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-
-
     const handleSubmitForm = async (data) => {
         try {
             reset()
 
             handleClose();
-            const url = `http://syncbackend.ddns.net:8080/acaueBeta-1.0-SNAPSHOT/webresources/generic/RegisterPopup`;
+            const url = `https://cflceb.hospedagemelastica.com.br/Painel/webresources/generic/RegisterPopup`;
 
             const params = new URLSearchParams();
             params.append('name', data.name);
             params.append('surname', data.surname);
             params.append('email', data.email);
 
-            await axios
-                .post(url, params)
-                .then((data) => {
-                    console.log('sucesso!', data.config)
-                    toast.success('Sucesso!!')
-
-                })
-                .catch((err) => {
-                    console.log('error Modal',  err.response.data)
-                    toast.error("Erro ao enviar mensagem")
-                })
-
+            try {
+                const response = await axios.post(url, params)
+                console.log("data on", response)
+                console.log("sucesso!", response.config)
+                toast.success('Contato enviado com sucesso!',{
+                    position: 'top-left',
+                    closeOnClick: false,
+                    theme: "dark",
+    
+                });
+            } catch (err) {
+                console.error('Conexão Falhou', err)
+                toast.error('Ocorreu um erro ao enviar o contato!')
+            }
         } catch (error) {
             console.error('Erro:', error);
-            alert('Erro ao enviar dados. Por favor, tente novamente.');
+            toast.error('Erro ao enviar dados. Por favor, tente novamente.');
         }
     };
 
@@ -94,7 +94,6 @@ const Modal = ({ isOpen, handleClose }) => {
     }
 
     return null
-
 }
 
 export default Modal

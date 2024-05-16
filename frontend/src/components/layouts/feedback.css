@@ -24,13 +24,12 @@
 .card_feedback {
     width: 99%;
     border: 1px solid #e5914e;
-    padding: 0 5vw;
+    padding: 1.5vh 5vw;
     border-radius: 1rem;
-    margin: 0 auto;
+    margin: auto 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 20vh;
     background: linear-gradient(218deg, rgba(0, 0, 0, 1) 68%, rgba(229, 145, 78, 1) 100%),
         linear-gradient(139deg, rgba(0, 0, 0, 1) 78%, rgba(229, 145, 78, 1) 100%);
     color: #fff;
@@ -46,7 +45,7 @@
 
 .card_feedback h3 {
     text-align: start;
-    margin: 0;
+    margin: 0 0 1vh 0 !important;
     color: #e5914e;
     font-size: 1.7rem;
 }
@@ -56,7 +55,9 @@
 }
 
 .container_feedback .swiper-slide {
-    margin-right: 0px;
+    height: 30vh;
+    margin: 0;
+    display: flex;
 }
 
 .container_feedback .swiper-button-prev,

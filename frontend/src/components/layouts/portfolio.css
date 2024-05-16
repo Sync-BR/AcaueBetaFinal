@@ -7,6 +7,9 @@
     font-size: 1.3rem;
     letter-spacing: 0.5px;
 }
+.custom_toast {
+    font-size: 40px;
+}
 
 
 
@@ -44,6 +47,7 @@
     color: #fff;
     transition: 0.8s ease-in-out;
     font-size: 1.3rem;
+
     outline: 1px solid;
     outline-color: #e5914e;
     outline-offset: 0px;
@@ -145,7 +149,7 @@
 
 @media (max-width:620px) {
     .slide-item {
-        height: 24vh;
+        height: 27vh;
     }
 }
 

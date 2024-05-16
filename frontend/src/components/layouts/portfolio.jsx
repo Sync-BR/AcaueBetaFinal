@@ -1,6 +1,7 @@
-import logo1 from '../../images/prima.png'
-import logo2 from '../../images/segu.png'
-import logo3 from '../../images/terc.png'
+
+import { ToastContainer, toast } from 'react-toastify'
+
+import axios from 'axios'
 
 
 import { useEffect, useState } from 'react'
@@ -17,17 +18,32 @@ import './portfolio.css'
 
 
 const Portfolio = () => {
-
+    const [projects, setProjects] = useState([]);
     const [preview, setPreview] = useState(3)
 
-    const imgData = [
-        { id: '1', image: logo1 },
-        { id: '2', image: "https://placehold.jp/230x130.png" },
-        { id: '3', image: logo3 },
-        { id: '4', image: "https://placehold.jp/230x130.png" },
-        { id: '5', image: logo2 },
-        { id: '6', image: "https://placehold.jp/230x130.png" }
-    ]
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    useEffect(() => {
+        axios.get('https://cflceb.hospedagemelastica.com.br/Painel/webresources/generic/returnpost')
+            .then((response) => {
+                const projectsData = response.data.slice(0, 6);
+                setProjects(projectsData);
+                toast.info('Projetos Recebidos!', {
+                    autoClose: 700,
+                    theme: "dark",
+                })
+            })
+            .catch((err) => {
+                console.error('Erro ao buscar os dados', err)
+                toast.error('Erro ao Receber os projetos.', {
+                    closeOnClick: false,
+                    draggable: true,
+                })
+            })
+    }, [])
 
     useEffect(() => {
         function handleResize() {
@@ -44,17 +60,6 @@ const Portfolio = () => {
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
-    const handleLinkClick = (e) => {
-        e.preventDefault();
-        if (window.innerWidth <= 768) {
-            setTimeout(() => {
-                window.location.href = e.target.getAttribute('href');
-            }, 700);
-        } else {
-            window.location.href = e.target.getAttribute('href');
-        }
-    };
-
     return (
         <div className='container_slide'>
             <div className='title_port'>
@@ -67,25 +72,25 @@ const Portfolio = () => {
                 pagination={{ clickable: true }}
                 navigation>
 
-                {imgData.map((img) => (
-                    <SwiperSlide key={img.id}>
-                        <Link 
-                        to={`/project/${img.id}`}
-                        >
+                {projects.map((item) => (
+                    <SwiperSlide key={item[0]}>
+                       <Link to="/project"
+                        state={{ projectData: item }}
+                    >
 
                             <img
-                                src={img.image}
+                                src={item[4]}
                                 alt='Logo_teste'
                                 className='slide-item'
                             />
                         </Link>
-                        <h4>Título new</h4>
-                        <p>Descrição New</p>
+                        <h4>{item[1]}</h4>
+                       
                     </SwiperSlide>
                 ))}
             </Swiper>
 
-            <Link className='btn_projetos' onClick={handleLinkClick} to="/portfolio"> Veja todos os projetos</Link>
+            <Link className='btn_projetos'  to="/portfolio"> Veja todos os projetos</Link>
         </div>
 
     )

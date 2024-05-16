@@ -9,15 +9,6 @@ import TextArea from "./textArea";
 import SubmitButton from "./submitBtn";
 import { useForm } from 'react-hook-form';
 
-let nada = "nadinha mermo"
-
-if (!nada) {
-    nada = "tudo agora"
-}else {
-    nada =" -bem tambem"
-}
-const tudo = nada + nada
-
 const FormContact = () => {
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
@@ -26,39 +17,35 @@ const FormContact = () => {
         try {
             reset()
 
-            setUsers(data)
-
-            const url = `https://zfaerp.hospedagemelastica.com.br/acaueBeta-1.0-SNAPSHOT/webresources/generic/Cadastrar`;
+            const url = `https://cflceb.hospedagemelastica.com.br/Painel/webresources/generic/Cadastrar`;
 
             const params = new URLSearchParams();
             params.append('name', data.name);
             params.append('email', data.email);
             params.append('message', data.message);
 
-            console.log('passei33 ')
-            
-            
-            await axios
-            .post(url, params)
-            console.log('to passando3')
-            .then((data) => {
-                console.log('sucesso!!!', data.config)
-                toast.success('Contato enviado com sucesso!')
-            })
-            console.log('to passando4')
-            .catch((error) => {
-                console.error('deu ruim', error)
-                toast.error("Ocorreu um erro ao enviar o contato.")
-            })
-    
+            try {
+                const response = await axios.post(url, params);
+                console.log("data env", response)
+                toast.success('Contato enviado com sucesso!',{
+                    position: 'bottom-left',
+                    closeOnClick: false,
+                    theme: "dark",
+
+                });
+            } catch (err) {
+                console.error('Conexão Falhou', err)
+                toast.error('Ocorreu um erro ao enviar o contato!')
+            }
+
         } catch (error) {
             console.error('Erro:', error);
-            console.log('Cai na vara')
             toast.error('Erro ao enviar os dados, tente novamente.', {
                 position: 'bottom-left',
                 closeOnClick: false,
                 draggable: true,
-                
+                theme: "dark",
+
             })
         }
     };

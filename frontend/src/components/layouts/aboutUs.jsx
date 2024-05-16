@@ -17,7 +17,7 @@ const AboutUs = () => {
 
             <h3>Conheça nossa História</h3>
 
-            <h2>Olá! Me chamo <span>Acauê Emanuel</span></h2>
+            <h2>Olá! Me chamo <span>DarkZinnn</span></h2>
 
             <section >
 
