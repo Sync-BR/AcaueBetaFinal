@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author SYNC
+ * @author SYNC.
  * @CloseConexao Está classe tem como funcionalidade encerrar o a conexão do Login
  */
 public class CloseConexao extends HttpServlet {
