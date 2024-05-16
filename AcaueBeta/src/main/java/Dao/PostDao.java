@@ -35,15 +35,15 @@ public class PostDao {
             conexao = Conexao.getConnection();
             stm = conexao.prepareStatement(sql);
             stm.setString(1, AddPost.getTitle());
-            stm.setString(2, Settings.Imagefolder + AddPost.getImageMain());
+            stm.setString(2, AddPost.getImageMain());
             stm.setString(3, AddPost.getDescription());
-            stm.setString(4, Settings.Imagefolder + AddPost.getImage1());
+            stm.setString(4, AddPost.getImage1());
             stm.setString(5, AddPost.getDescription1());
-            stm.setString(6, Settings.Imagefolder + AddPost.getImage2());
+            stm.setString(6,  AddPost.getImage2());
             stm.setString(7, AddPost.getDescription2());
-            stm.setString(8, Settings.Imagefolder + AddPost.getImage3());
+            stm.setString(8, AddPost.getImage3());
             stm.setString(9, AddPost.getDescription3());
-            stm.setString(10, Settings.Imagefolder + AddPost.getImage4());
+            stm.setString(10,  AddPost.getImage4());
             stm.setString(11, AddPost.getDescription4());
 
             int Update = stm.executeUpdate();
@@ -140,14 +140,14 @@ public class PostDao {
             stm = conexao.prepareStatement(sql);
             stm.setString(1, AddPost.getTitle());
             stm.setString(2, AddPost.getDescription());
-            stm.setString(3, Settings.Imagefolder + AddPost.getImageMain());
-            stm.setString(4, Settings.Imagefolder + AddPost.getImage1());
+            stm.setString(3,  AddPost.getImageMain());
+            stm.setString(4, AddPost.getImage1());
             stm.setString(5, AddPost.getDescription1());
-            stm.setString(6, Settings.Imagefolder + AddPost.getImage2());
+            stm.setString(6,  AddPost.getImage2());
             stm.setString(7, AddPost.getDescription2());
-            stm.setString(8, Settings.Imagefolder + AddPost.getImage3());
+            stm.setString(8,AddPost.getImage3());
             stm.setString(9, AddPost.getDescription3());
-            stm.setString(10, Settings.Imagefolder + AddPost.getImage4());
+            stm.setString(10,AddPost.getImage4());
             stm.setString(11, AddPost.getDescription4());
             stm.setString(12, Titulo);
             int Result = stm.executeUpdate();
@@ -217,8 +217,8 @@ public class PostDao {
         PreparedStatement stm = null;
         ResultSet rs = null;
         UpdateSucess = false;
-        Img.removeAll(Img);
-        Description.removeAll(Description);
+        Img.clear();
+        Description.clear();
         try {
             String sql = "Select * from " + Settings.Db + ".posts where name = ?";
             conexao = Conexao.getConnection();

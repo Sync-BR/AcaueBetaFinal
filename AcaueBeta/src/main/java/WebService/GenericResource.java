@@ -41,7 +41,7 @@ public class GenericResource {
     @POST
     public Response Cadastrar(@FormParam("name") String name,
             @FormParam("email") String email,
-            @FormParam("message") String message) throws Exception {
+            @FormParam("message") String message) throws Exception {  
         EmailBeans AddEmail = new EmailBeans();
         EmailDao Cadastrar = new EmailDao();
         AddEmail.setName(name);
@@ -62,7 +62,7 @@ public class GenericResource {
      */
     @Path("/RegisterPopup")
     @POST
-    public Response Registerpopup(@FormParam("name") String name,
+    public String Registerpopup(@FormParam("name") String name,
             @FormParam("surname") String surname,
             @FormParam("email") String email) throws Exception {
         System.out.println("Nome " +name);
@@ -78,7 +78,8 @@ public class GenericResource {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        String teste = "ola";
+        return teste;
     }
 
     /**

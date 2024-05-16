@@ -1,13 +1,13 @@
 
 <%@page import="Dao.LoginDao"%>
 <%@page import="Dao.Accountant"%>
+
 <%
+    
     if (!LoginDao.Conectado) {
         response.sendRedirect("index.jsp");
     }
-    if(LoginDao.Status == null){
-        LoginDao.Status = "";
-    }
+
 %>
 
 <!DOCTYPE html>

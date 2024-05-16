@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/WebServices/JerseyClient.java to edit this template
- */
+
 package WebService;
 
 import java.util.Set;
@@ -13,7 +10,8 @@ public class ApplicationConfig extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         Set<Class<?>> resources = new java.util.HashSet<>();
-        addRestResourceClasses(resources);
+        resources.add(GenericResource.class);
+        resources.add(Servlets.SimpleCORSFilter.class);
         return resources;
     }
 
@@ -24,6 +22,7 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(WebService.CORSFilter.class);
         resources.add(WebService.GenericResource.class);
         
  

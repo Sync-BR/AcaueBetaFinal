@@ -31,7 +31,7 @@
             </div>
         </header>
         <div class="container">
-            <nav>
+             <nav>
                 <ul>
                     <li><a href="./home.jsp" class="HomePage">Home page</a></li>
                     <details>
@@ -40,14 +40,15 @@
                         </summary>
                         <li><a href="./MakePost.jsp">Make post</a></li>
                         <li><a href="./MenagePost.jsp">Manage post</a></li>
-                    </details>          
+                    </details>
                     <details>
                         <summary>
                             <strong>Settings</strong>
                         </summary>
                         <li><a href="./Account.jsp">Account</a></li>
-                        <li><a href="./MenageEmails.jsp">Manage Emails</a></li>
-                    </details>         
+                        <li><a href="./MenageEmails.jsp">Manage Contato</a></li>
+                        <li><a href="./MenagePop.jsp">Manage Emails</a></li>
+                    </details>
                 </ul>
             </nav>
             <main>

@@ -18,5 +18,6 @@ Dao\EmailDao.class
 Servlets\ServeletsChangePost.class
 Servlets\ServletLogin.class
 Servlets\UpdatePost.class
+WebService\CORSFilter.class
 Beans\PostBeans.class
 Dao\PostDao.class

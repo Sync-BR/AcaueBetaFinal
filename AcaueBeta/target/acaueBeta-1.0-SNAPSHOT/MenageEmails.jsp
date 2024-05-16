@@ -58,20 +58,9 @@
             </nav>
 
             <main>
-                <!-- <form action="./teste" method="post">
-                <select name="Usuarios" size="2" >
-                <%
-                    EmailDao AddEmails = new EmailDao();
-                    AddEmails.ReturnRegisteredUsers();
 
-                    for (int index = 0; index < EmailDao.Email.size(); index++) {
-                        out.print("<option>" + EmailDao.Email.get(index) + "</option>");
 
-                    }
-                %>
-    </select>
-    <input type="submit" value="Pesquisar" name="Pesquisar" />
-     </form> -->
+
                 <table class="tableMenage" >
                     <tr>
                     <thead class="MenageThead">
@@ -84,7 +73,7 @@
                          <%
                             EmailDao ReturnEmails = new EmailDao();
                             ReturnEmails.ReturnRegisteredEmail();
-                             
+                         //   ReturnEmails.ReturnRegisteredUsers();
                             for (int index = 0; index < EmailDao.Email.size(); index++) {
                                 out.print("<form action=\"./ServletDeleteEmail\" method=\"POST\">");
                                     out.print("<tr>");
@@ -99,8 +88,6 @@
                                 
 
                             }
-                            
-
                         %> 
               
                        

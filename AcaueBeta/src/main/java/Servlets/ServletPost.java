@@ -38,16 +38,16 @@ public class ServletPost extends HttpServlet {
         PostDao Post = new PostDao();
         System.out.println("teste 5");
 
-        AddPost.setImageMain(AddPost.getImageMain());
+        AddPost.setImageMain(Settings.Imagefolder+AddPost.getImageMain());
         AddPost.setTitle(request.getParameter("Title"));
         AddPost.setDescription(request.getParameter("Description"));
-        AddPost.setImage1(AddPost.getImage1());
+        AddPost.setImage1(Settings.Imagefolder+AddPost.getImage1());
         AddPost.setDescription1(request.getParameter("Description1"));
-        AddPost.setImage2(AddPost.getImage2());
+        AddPost.setImage2(Settings.Imagefolder+AddPost.getImage2());
         AddPost.setDescription2(request.getParameter("Description2"));
-        AddPost.setImage3(AddPost.getImage3());
+        AddPost.setImage3(Settings.Imagefolder+AddPost.getImage3());
         AddPost.setDescription3(request.getParameter("Description3"));
-        AddPost.setImage4(AddPost.getImage4());
+        AddPost.setImage4(Settings.Imagefolder+AddPost.getImage4());
         AddPost.setDescription4(request.getParameter("Description4"));
         try {
             Post.Post(AddPost);

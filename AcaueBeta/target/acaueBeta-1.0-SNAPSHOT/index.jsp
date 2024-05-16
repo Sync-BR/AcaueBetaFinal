@@ -1,9 +1,7 @@
 <%@page import="Beans.LoginBeans"%>
 <%@page import="Dao.LoginDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%> -->
-<%
-    System.out.println("Estado da conta: " +LoginDao.Conectado );
-%>
+
 <!DOCTYPE html>
 <html>
     <head>

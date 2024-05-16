@@ -38,37 +38,40 @@ public class UpdatePost extends HttpServlet {
     private void addpost(HttpServletRequest request, PostBeans UpdatePost) throws IOException, ServletException {
         PostDao Update = new PostDao();
 //Verificar se a imagem está nulla
-        String updateImg = request.getParameter("UpdateIMG");
+        String updateImg = UpdatePost.getImageMain();
         if (updateImg != null && !updateImg.trim().isEmpty()) {
-            UpdatePost.setImageMain(updateImg);
+            UpdatePost.setImageMain(Settings.Imagefolder+updateImg);
             
         } else {
             UpdatePost.setImageMain(imgs);
         }
-        String updateImg1 = request.getParameter("UpdateIMG1");
+        String updateImg1 = UpdatePost.getImage1();
         if (updateImg1 != null && !updateImg1.isEmpty()) {
-            UpdatePost.setImage1(updateImg1);
+            UpdatePost.setImage1(Settings.Imagefolder+updateImg1);
+            System.out.println("Imagem 1: " +updateImg1);
         } else {
             UpdatePost.setImage1(Img.get(0));
+            System.out.println("Imagem 2 " +Img.get(0));
         }
 
-        String updateImg2 = request.getParameter("UpdateIMG2");
+        String updateImg2 = UpdatePost.getImage2();
         if (updateImg2 != null && !updateImg2.isEmpty()) {
-            UpdatePost.setImage2(updateImg2);
+            UpdatePost.setImage2(Settings.Imagefolder+updateImg2);
         } else {
             UpdatePost.setImage2(Img.get(1));
+            System.out.println("IMG1: " +Img.get(1));
         }
 
-        String updateImg3 = request.getParameter("UpdateIMG3");
+        String updateImg3 = UpdatePost.getImage3();
         if (updateImg3 != null && !updateImg3.isEmpty()) {
-            UpdatePost.setImage3(updateImg3);
+            UpdatePost.setImage3(Settings.Imagefolder+updateImg3);
         } else {
             UpdatePost.setImage3(Img.get(2));
         }
 
-        String updateImg4 = request.getParameter("UpdateIMG4");
+        String updateImg4 = UpdatePost.getImage4();
         if (updateImg4 != null && !updateImg4.isEmpty()) {
-            UpdatePost.setImage4(updateImg4);
+            UpdatePost.setImage4(Settings.Imagefolder+updateImg4);
         } else {
             UpdatePost.setImage4(Img.get(3));
         }
