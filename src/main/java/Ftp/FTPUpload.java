@@ -19,7 +19,6 @@ public class FTPUpload {
     private int Port = 21;
     private String Usuario = "acauebeta";
     private String Pass = "e17c1ffd-c175-4074-9d4b62655d38-a882-4d22";
-    //Variavel para armazena imagem
     //Variavel configuração de armazenamento
     private String remoteFilePath = "/acauebeta/";
 

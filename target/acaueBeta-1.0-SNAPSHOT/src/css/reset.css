@@ -1,0 +1,41 @@
+* {
+    margin:0 ;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    list-style: none
+}
+
+
+nav{
+    border: 1px double gold;
+    font-size: 18px;
+    width: 20%;
+}
+nav li{
+    margin-left: 5%;
+    text-decoration: none;
+    list-style-type: none;
+    color: white;
+}
+
+strong{
+    color: white;
+    text-align: center;
+}
+summary{
+    border: 1px solid gold;
+}
+details{
+    cursor: pointer;
+}
+.container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
