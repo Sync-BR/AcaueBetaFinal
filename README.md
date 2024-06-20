@@ -1,7 +1,7 @@
 # Painel Administrador Acauebeta
 
 ## Sobre
-    O Painel Administrador Acauebeta permite ao administrador visualizar e gerenciar os dados da plataforma de maneira eficiente. Entre as funcionalidades, estão a consulta do total de usuários cadastrados (via POPUP), total de e-mails cadastrados e total de postagens efetuadas. Também é possível adicionar novas postagens e gerenciar os arquivos com facilidade. Após o upload, os arquivos são salvos em uma pasta e posteriormente transferidos para uma hospedagem.
+ O Painel Administrador Acauebeta permite ao administrador visualizar e gerenciar os dados da plataforma de maneira eficiente. Entre as funcionalidades, estão a consulta do total de usuários cadastrados (via POPUP), total de e-mails cadastrados e total de postagens efetuadas. Também é possível adicionar novas postagens e gerenciar os arquivos com facilidade. Após o upload, os arquivos são salvos em uma pasta e posteriormente transferidos para uma hospedagem.
 
 
     
