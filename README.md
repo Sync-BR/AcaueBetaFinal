@@ -1,10 +1,21 @@
 # Painel Administrador Acauebeta
 
 ## Sobre
- O Painel Administrador Acauebeta permite ao administrador visualizar e gerenciar os dados da plataforma de maneira eficiente. Entre as funcionalidades, estão a consulta do total de usuários cadastrados (via POPUP), total de e-mails cadastrados e total de postagens efetuadas. Também é possível adicionar novas postagens e gerenciar os arquivos com facilidade. Após o upload, os arquivos são salvos em uma pasta e posteriormente transferidos para uma hospedagem.
+O Painel Administrador Acauebeta permite ao administrador visualizar e gerenciar os dados da plataforma de maneira eficiente. Entre as funcionalidades, estão a consulta do total de usuários cadastrados (via POPUP), total de e-mails cadastrados e total de postagens efetuadas. Também é possível adicionar novas postagens e gerenciar os arquivos com facilidade. Após o upload, os arquivos são salvos em uma pasta e posteriormente transferidos para uma hospedagem.
 
+## Como instalar
+ * <strong>Clonar o repositório:</strong>   <br>`git clone https://github.com/Sync-BR/AcaueBetaFinal.git`
+ * <strong>Navegar até o diretório do repositório clonado</strong><br>`cd AcaueBetaFinal`
+ * <strong>Fazer checkout da branch BackEnd</strong><br>`git checkout BackEnd`
 
-    
+<br><br>
+ <strong>resumo dos comandos:</strong>
+```console
+git clone https://github.com/Sync-BR/AcaueBetaFinal.git
+cd AcaueBetaFinal
+git checkout BackEnd
+
+```    
 
 ## Requisitos
 * JDK 22 [Download Oracle](https://www.oracle.com/br/java/technologies/downloads/)
