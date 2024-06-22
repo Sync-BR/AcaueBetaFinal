@@ -27,7 +27,7 @@ const Portfolio = () => {
     }, []);
 
     useEffect(() => {
-        axios.get('https://cflceb.hospedagemelastica.com.br/Painel/webresources/generic/returnpost')
+        axios.get('http://localhost:80/dashboard/imgs_newProjects/')
             .then((response) => {
                 const projectsData = response.data.slice(0, 6);
                 setProjects(projectsData);
