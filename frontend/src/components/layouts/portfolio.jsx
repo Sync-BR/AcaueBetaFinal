@@ -26,25 +26,6 @@ const Portfolio = () => {
     }, []);
 
     useEffect(() => {
-<<<<<<< HEAD
-        axios.get('http://localhost:80/dashboard/imgs_newProjects/')
-            .then((response) => {
-                const projectsData = response.data.slice(0, 6);
-                setProjects(projectsData);
-                toast.info('Projetos Recebidos!', {
-                    autoClose: 700,
-                    theme: "dark",
-                })
-            })
-            .catch((err) => {
-                console.error('Erro ao buscar os dados', err)
-                toast.error('Erro ao Receber os projetos.', {
-                    closeOnClick: false,
-                    draggable: true,
-                })
-            })
-    }, [])
-=======
         const selectedImages = categoriesImgs.categories.slice(0, 6).map(category => ({
             category: category.name,
             images: category.images,
@@ -52,7 +33,6 @@ const Portfolio = () => {
         }));
         setSliderImages(selectedImages);
     }, []);
->>>>>>> front
 
     useEffect(() => {
         function handleResize() {
