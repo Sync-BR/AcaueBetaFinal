@@ -8,7 +8,8 @@ import { toast, ToastContainer } from 'react-toastify';
 const Project = () => {
 
     let location = useLocation()
-    const projectData = location.state ? location.state.projectData : null
+    const projectData = location.state ? location.state.images : null
+    const categoryData = location.state ? location.state.categoryName : null
 
 
 
@@ -16,7 +17,7 @@ const Project = () => {
         window.scrollTo(0, 0);
 
         if (projectData) {
-            toast.info(`Projeto --  ${projectData[1]}`, {
+            toast.info(`Projeto --  ${categoryData}`, {
                 autoClose: 1000,
                 theme: "dark",
             })
@@ -39,16 +40,16 @@ const Project = () => {
                 className={`${styles.container_project}`}>
                 <div className={styles.container_header}>
                     <span></span>
-                    <h1>{projectData[1]}</h1>
+                    <h1>{categoryData}</h1>
                     <span></span>
                 </div>
-                <img data-index={'0'} className={`${styles.img_first} `} src={`${projectData[4]}`} alt="animes" />
-                <p>{projectData[5]} <BsChatDots className={styles.icon_chat} /> </p>
-                <img data-index={'1'} className={``} src={`${projectData[6]}`} alt="animes" />
+                <img data-index={'0'} className={`${styles.img_first} `} src={`${projectData[0]}`} alt="animes" />
+                <p>{projectData[5]} <BsChatDots className={styles.icon_chat} /></p>
+                <img data-index={'1'} className={``} src={`${projectData[1]}`} alt="animes" />
                 <p>{projectData[7]} <BsChatDots className={styles.icon_chat} /> </p>
-                <img data-index={'2'} className={``} src={`${projectData[8]}`} alt="animes" />
+                <img data-index={'2'} className={``} src={`${projectData[2]}`} alt="animes" />
                 <p>{projectData[9]} <BsChatDots className={styles.icon_chat} /> </p>
-                <img data-index={'3'} className={``} src={`${projectData[10]}`} alt="animes" />
+                <img data-index={'3'} className={``} src={`${projectData[3]}`} alt="animes" />
                 <p>{projectData[11]} <BsChatDots className={styles.icon_chat} /> </p>
             </div>
         </div>

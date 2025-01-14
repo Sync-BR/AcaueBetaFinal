@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 import styles from './portfolio_page.module.scss'
+import categoriesImgs from '../../categoriesImgs.json'
 
 const Portfolio = () => {
 
@@ -11,24 +12,12 @@ const Portfolio = () => {
     const containerRef = useRef(null);
 
     useEffect(() => {
-        axios.get('https://cflceb.hospedagemelastica.com.br/Painel/webresources/generic/returnpost')
-            .then((response) => {
-                setData(response.data);
-                toast.success('Projetos Recebidos!', {
-                    draggable: true,
-                    autoClose: 1000,
-                    theme: "dark",
-                })
-            })
-            .catch((err) => {
-                console.error('Erro ao buscar os dados', err)
-                toast.error('Erro ao Receber os projetos.', {
-                    draggable: true,
-                    autoClose: 1000,
-                    theme: "dark",
-                })
-            })
-    }, [])
+        const selectedImages = categoriesImgs.categories.map(category => ({
+            category: category.name,
+            images: category.images,
+        }));
+        setData(selectedImages);
+    }, []);
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -48,7 +37,6 @@ const Portfolio = () => {
         }, { threshold: 0.4 });
 
         const cards = containerRef.current.querySelectorAll(`.${styles.card_port}`)
-        // console.log(containerRef.current);
         cards.forEach((card) => observer.observe(card));
 
         return () => {
@@ -73,13 +61,12 @@ const Portfolio = () => {
                         className={`${styles.card_port} ${visibleCards.includes(index.toString()) && styles.visible}`}
                         key={index}
                         to="/project"
-                        state={{ projectData: item }}
+                        state={{ categoryName: item.category, images: item.images }}
                         data-index={index.toString()}
-                    // onClick={getToWithDelay}
                     >
                         <div >
-                            <img className={styles.img_first} src={`${item[4]}`} alt="foto_portfolio" />
-                            <h3> {item[1]}</h3>
+                            <img className={styles.img_first} src={`${item.images[0]}`} alt="foto_portfolio" />
+                            <h3> {item.category}</h3>
                         </div>
 
                     </Link>

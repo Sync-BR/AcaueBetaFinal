@@ -1,0 +1,94 @@
+{
+    "categories": [
+      {
+        "name": "animes_art",
+        "images": [
+          "/images/animes_art/dragneel_natsu.jpg",
+          "/images/animes_art/goku.jpg",
+          "/images/animes_art/killua.png",
+          "/images/animes_art/ulquiorra.png"
+        ]
+      },
+      {
+        "name": "calopsita_art",
+        "images": [
+          "/images/calopsita_art/calop_1.jpg",
+          "/images/calopsita_art/calop_2.jpg",
+          "/images/calopsita_art/calop_3.jpg",
+          "/images/calopsita_art/calop_4.jpg"
+        ]
+      },
+      {
+        "name": "dark_art",
+        "images": [
+          "/images/dark_art/dark_anime.jpg",
+          "/images/dark_art/dark_darkzinnn.jpeg",
+          "/images/dark_art/dark_moon.jpg",
+          "/images/dark_art/dark_xii.jpg"
+        ]
+      },
+      {
+        "name": "gatos_art",
+        "images": [
+          "/images/gatos_art/gato_dark-3.jpg",
+          "/images/gatos_art/gato-1.jpg",
+          "/images/gatos_art/gato-2.jpeg",
+          "/images/gatos_art/gato-4.jpg"
+        ]
+      },
+      {
+        "name": "ichigo_art",
+        "images": [
+          "/images/ichigo_art/ichigo_1.jpg",
+          "/images/ichigo_art/ichigo_2.jpg",
+          "/images/ichigo_art/ichigo_3.jpg",
+          "/images/ichigo_art/ichigo_4.jpg"
+        ]
+      },
+      {
+        "name": "praia_art",
+        "images": [
+          "/images/praia_art/praia_art1.jpeg",
+          "/images/praia_art/praia_art2.jpg",
+          "/images/praia_art/praia_barra.jpg",
+          "/images/praia_art/praia_da_galera.jpg"
+        ]
+      },
+      {
+        "name": "setup_art",
+        "images": [
+          "/images/setup_art/setup-1.jpg",
+          "/images/setup_art/setup-2.jpg",
+          "/images/setup_art/setup-3.jpg",
+          "/images/setup_art/setup-4.jpg"
+        ]
+      },
+      {
+        "name": "skate_art",
+        "images": [
+          "/images/skate_art/cyber_skate.jpg",
+          "/images/skate_art/skate_brothers.jpg",
+          "/images/skate_art/skate_manual.jpeg",
+          "/images/skate_art/skater_picture.jpg"
+        ]
+      },
+      {
+        "name": "universo_art",
+        "images": [
+          "/images/universo_art/universo-1.png",
+          "/images/universo_art/universo-2.jpg",
+          "/images/universo_art/universo-3.jpg",
+          "/images/universo_art/universo-4.png"
+        ]
+      },
+      {
+        "name": "yin-yang_art",
+        "images": [
+          "/images/yin-yang_art/yin_yang-1.png",
+          "/images/yin-yang_art/yin_yang-2.jpg",
+          "/images/yin-yang_art/yin_yang-3.jpg",
+          "/images/yin-yang_art/yin_yang-4.png"
+        ]
+      }
+    ]
+  }
