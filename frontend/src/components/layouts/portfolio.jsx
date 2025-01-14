@@ -1,25 +1,24 @@
 
 import { ToastContainer, toast } from 'react-toastify'
-
 import axios from 'axios'
-
-
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { register } from 'swiper/element/bundle'
-register();
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import './portfolio.css'
 
+import categoriesImgs from '../../categoriesImgs.json'
+
+register();
 
 const Portfolio = () => {
-    const [projects, setProjects] = useState([]);
     const [preview, setPreview] = useState(3)
+    const [sliderImages, setSliderImages] = useState([]);
+
 
 
     useEffect(() => {
@@ -27,23 +26,13 @@ const Portfolio = () => {
     }, []);
 
     useEffect(() => {
-        axios.get('https://cflceb.hospedagemelastica.com.br/Painel/webresources/generic/returnpost')
-            .then((response) => {
-                const projectsData = response.data.slice(0, 6);
-                setProjects(projectsData);
-                toast.info('Projetos Recebidos!', {
-                    autoClose: 700,
-                    theme: "dark",
-                })
-            })
-            .catch((err) => {
-                console.error('Erro ao buscar os dados', err)
-                toast.error('Erro ao Receber os projetos.', {
-                    closeOnClick: false,
-                    draggable: true,
-                })
-            })
-    }, [])
+        const selectedImages = categoriesImgs.categories.slice(0, 6).map(category => ({
+            category: category.name,
+            images: category.images,
+            image: category.images[0]
+        }));
+        setSliderImages(selectedImages);
+    }, []);
 
     useEffect(() => {
         function handleResize() {
@@ -72,25 +61,25 @@ const Portfolio = () => {
                 pagination={{ clickable: true }}
                 navigation>
 
-                {projects.map((item) => (
-                    <SwiperSlide key={item[0]}>
-                       <Link to="/project"
-                        state={{ projectData: item }}
-                    >
+                {sliderImages.map((item) => (
+                    <SwiperSlide key={item.category}>
+                        <Link to="/project"
+                            state={{ categoryName: item.category, images: item.images }}
+                        >
 
                             <img
-                                src={item[4]}
-                                alt='Logo_teste'
+                                src={item.image}
+                                alt='Logo'
                                 className='slide-item'
                             />
                         </Link>
                         <h4>{item[1]}</h4>
-                       
+
                     </SwiperSlide>
                 ))}
             </Swiper>
 
-            <Link className='btn_projetos'  to="/portfolio"> Veja todos os projetos</Link>
+            <Link className='btn_projetos' to="/portfolio"> Veja todos os projetos</Link>
         </div>
 
     )
