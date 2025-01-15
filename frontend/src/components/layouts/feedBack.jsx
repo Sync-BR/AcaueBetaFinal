@@ -1,5 +1,4 @@
 
-
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { register } from 'swiper/element/bundle'
 register();
@@ -15,12 +14,12 @@ const FeedBack = () => {
     const commitResponsive = "lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempora perspiciatis saepe id? Suscipit illo totam quos voluptate esse atque temporibus, commodi magni dolores repellendus deserunt placeat odio, animi quodR."
 
     const feedBack = [
-        { id: '1', name: "Yann o Brabo", commitResponsive: commitResponsive, commit: commit },
-        { id: '2', name: "Acaue o Brabo", commitResponsive: commitResponsive, commit: commit },
-        { id: '3', name: "Sync o Brabo", commitResponsive: commitResponsive, commit: commit },
-        { id: '4', name: "ShoTWD o Brabo", commitResponsive: commitResponsive, commit: commit },
-        { id: '5', name: "DsVrog o Brabo", commitResponsive: commitResponsive, commit: commit },
-        { id: '6', name: "400kg o Brabo", commitResponsive: commitResponsive, commit: commit }
+        { id: '1', name: "Yann o Dev", commitResponsive: commitResponsive, commit: commit },
+        { id: '2', name: "Acaue o Dev", commitResponsive: commitResponsive, commit: commit },
+        { id: '3', name: "Sync o Dev", commitResponsive: commitResponsive, commit: commit },
+        { id: '4', name: "ShoTWD o Dev", commitResponsive: commitResponsive, commit: commit },
+        { id: '5', name: "DsVrog o Dev", commitResponsive: commitResponsive, commit: commit },
+        { id: '6', name: "400kg o Dev", commitResponsive: commitResponsive, commit: commit }
     ]
 
     return (
