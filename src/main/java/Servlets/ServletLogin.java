@@ -2,6 +2,7 @@ package Servlets;
 
 import Beans.LoginBeans;
 import Dao.LoginDao;
+
 import static Dao.LoginDao.Conectado;
 
 import java.io.IOException;
@@ -11,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
  * @author SYNC
  * @Sobre Está classe tem como funcionalidade iniciar o login
  */
@@ -25,16 +25,17 @@ public class ServletLogin extends HttpServlet {
         AddLogin.setPassword(request.getParameter("FieldPassword"));
         try {
             Autenticar.Authenticate(AddLogin);
+            if (Autenticar.Authenticate(AddLogin) != null) {
+                response.sendRedirect("home.jsp");
+            } else {
+                LoginDao.Status = " Credenciais de acesso inválidas.";
+                response.sendRedirect("index.jsp");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(LoginDao.Conectado){
-            response.sendRedirect("home.jsp");
-        } else {
-            LoginDao.Status = " Credenciais de acesso inválidas.";
-            response.sendRedirect("index.jsp");        
-        }
-        
+
+
     }
 
     @Override
@@ -44,7 +45,6 @@ public class ServletLogin extends HttpServlet {
     }
 
     /**
-     *
      * @author SYNC
      * @doPost Pegar todas informações prenchido no form e enviar a solicitalçao
      * pra efetuar o login
