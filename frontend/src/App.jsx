@@ -8,6 +8,7 @@ import Portfolio from './components/pages/Portfolio';
 import Project from './components/pages/ProjectSingle';
 import Footer from './components/layouts/footer';
 import Modal from './components/pages/Modal';
+import ScrollToTop from "./components/scrollToTop/scrollToTop";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
       <Footer />
+      <ScrollToTop />
     </Router>
   )
 }
