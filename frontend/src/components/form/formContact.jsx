@@ -17,7 +17,7 @@ const FormContact = () => {
         try {
             reset()
 
-            const url = `https://cflceb.hospedagemelastica.com.br/Painel/webresources/generic/Cadastrar`;
+            const url = `http://186.247.89.58:8080/AcaueBetaFinal/webresources/generic/Cadastrar`;
 
             const params = new URLSearchParams();
             params.append('name', data.name);
