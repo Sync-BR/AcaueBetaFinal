@@ -15,7 +15,7 @@ const Modal = ({ isOpen, handleClose }) => {
             reset()
 
             handleClose();
-            const url = `https://cflceb.hospedagemelastica.com.br/Painel/webresources/generic/RegisterPopup`;
+            const url = `http://186.247.89.58:8080/AcaueBetaFinal/webresources/generic/RegisterPopup`;
 
             const params = new URLSearchParams();
             params.append('name', data.name);
